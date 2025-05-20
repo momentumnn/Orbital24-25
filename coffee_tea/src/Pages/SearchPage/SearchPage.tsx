@@ -7,20 +7,7 @@ import MapSection from "../../Components/MapSection";
 const SearchPage: React.FC = () => {
   return (
     <div className="search-container">
-      <nav className="nav-bar">
-        <div className="nav-content">
-          <div className="nav-logo">Coffee, Tea or Me</div>
-          <div className="nav-links">
-            <div className="nav-link">Home</div>
-            <div className="nav-link">Profile</div>
-            <div className="nav-link">Restaurants</div>
-            <div className="nav-link">Search</div>
-          </div>
-        </div>
-      </nav>
-
       <MapSection />
-
       <div className="search-content">
         <div className="section-title">List of your saved cafes!</div>
 

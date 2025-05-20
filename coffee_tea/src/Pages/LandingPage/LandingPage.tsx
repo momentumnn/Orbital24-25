@@ -1,21 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles.css";
 import CafeCardLarge from "../../Components/CafeCardLarge";
 import ReviewCard from "../../Components/ReviewCard";
+import { Cafe } from "../../types";
+
+const INITIAL_CAFES: Cafe[] = [
+  {
+    name: "Mcdonalds",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+    address: "123 sesame street",
+    tags: ["cafe", "kfc"],
+  },
+  {
+    name: "Mcdonalds",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+    address: "123 sesame street",
+    tags: ["cafe", "kfc"],
+  },
+  {
+    name: "Mcdonalds",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+    address: "123 sesame street",
+    tags: ["cafe", "kfc"],
+  },
+  {
+    name: "Mcdonalds",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+    address: "123 sesame street",
+    tags: ["cafe", "kfc"],
+  },
+];
 
 const LandingPage: React.FC = () => {
+  const [tasks, setTasks] = useState<Cafe[]>(INITIAL_CAFES);
+
   return (
     <div className="landing-container">
-      <header className="landing-header">
-        <div className="landing-logo">Coffee, Tea or Me</div>
-        <nav className="landing-nav">
-          <div className="landing-nav-item">Home</div>
-          <div className="landing-nav-item">Profile</div>
-          <div className="landing-nav-item">Restaurants</div>
-          <div className="landing-nav-item">Search</div>
-        </nav>
-      </header>
-
       <div className="landing-hero">
         <div className="landing-hero-title">Cafe Planner</div>
       </div>
@@ -23,26 +47,9 @@ const LandingPage: React.FC = () => {
       <div className="landing-cafes-section">
         <h2 className="landing-section-title">Other cafes in your list!</h2>
         <div className="landing-cafes-container">
-          <CafeCardLarge
-            name="Mcdonalds"
-            imageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac"
-            address="123 sesame street"
-          />
-          <CafeCardLarge
-            name="Mcdonalds"
-            imageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/a1276691fa984a8862b1d3e30fd56ed59647ffe4"
-            address="123 sesame street"
-          />
-          <CafeCardLarge
-            name="Mcdonalds"
-            imageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/8028f70ec42f47fc2b68e751ccfffaffedafe819"
-            address="123 sesame street"
-          />
-          <CafeCardLarge
-            name="Mcdonalds"
-            imageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/fa8add6d10c721e75c3cd7407700ee9deb546e3c"
-            address="123 sesame street"
-          />
+          {tasks.map((task, index) => {
+            return <CafeCardLarge key={index} cafe={task} />;
+          })}
         </div>
       </div>
 

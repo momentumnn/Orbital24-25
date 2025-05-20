@@ -4,40 +4,11 @@
   min-height: 100vh;
 }
 
-/* Header Styles */
-.landing-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 52px 76px;
-  height: 164px;
-  background-color: #e6e6e6;
-}
-
-.landing-logo {
-  font-size: 20px;
-  color: #000;
-}
-
-.landing-nav {
-  display: flex;
-  gap: 48px;
-  padding: 11px 31px;
-}
-
-.landing-nav-item {
-  font-size: 20px;
-  color: #000;
-  cursor: pointer;
-}
-
 /* Hero Section Styles */
 .landing-hero {
   height: 576px;
-  background:
-    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("https://cdn.builder.io/api/v1/image/assets/TEMP/ea49f926b4f8a7e1af99ac7be5461000")
-      lightgray 50% / cover no-repeat;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("../../Assets/cafe_thumbnail.jpg") lightgray 50% / cover no-repeat;
   display: flex;
   align-items: flex-end;
   padding-bottom: 60px;
