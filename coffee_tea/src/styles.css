@@ -4,6 +4,33 @@
   --color-border: #e6e6e6;
 }
 
+/* Header Styles */
+.landing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 52px 76px;
+  height: 50px;
+  background-color: #e6e6e6;
+}
+
+.landing-logo {
+  font-size: 20px;
+  color: #000;
+}
+
+.landing-nav {
+  display: flex;
+  gap: 48px;
+  padding: 11px 31px;
+}
+
+.landing-nav-item {
+  font-size: 20px;
+  color: #000;
+  cursor: pointer;
+}
+
 /* Map Section Styles */
 .map-section {
   position: relative;
@@ -42,6 +69,15 @@
 
 /* Cafe Card Styles */
 .cafe-card {
+  border-radius: 8px;
+  padding: 20px;
+  width: 262px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+  background-color: #ffe6b8;
+}
+
+/* Cafe Card Styles */
+.cafe-card-large-content {
   border-radius: 8px;
   padding: 20px;
   width: 262px;

@@ -3,18 +3,19 @@ import LandingPage from "./Pages/LandingPage/LandingPage";
 import SearchPage from "./Pages/SearchPage/SearchPage";
 import "./App.css";
 import "./styles.css";
+import Header from "./Components/Header";
 
 function App() {
   const [currentPage, setCurrentPage] = useState<"landing" | "search">(
-    "landing",
+    "landing"
   );
 
   return (
     <>
+      {/* Simple navigation for demo purposes */}
+      <Header />
       {currentPage === "landing" && <LandingPage />}
       {currentPage === "search" && <SearchPage />}
-
-      {/* Simple navigation for demo purposes */}
       <div
         style={{
           position: "fixed",
