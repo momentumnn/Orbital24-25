@@ -1,39 +1,80 @@
 import React, { useState } from "react";
-import LandingPage from "./Pages/LandingPage/LandingPage";
-import SearchPage from "./Pages/SearchPage/SearchPage";
+import { Routes, Route } from 'react-router-dom';
+
+
+//pages
+import HomePage from './Pages/HomePage/HomePage';
+import LoginPage from './Pages/LoginPage/LoginPage';
+import RegisterPage from './Pages/RegisterPage/RegisterPage';
+import LoginRegisterPage from './Pages/LoginRegisterPage/LoginRegisterPage';
+import SearchPage from './Pages/SearchPage/SearchPage';
+import RestaurantsPage from './Pages/RestaurantsPage/RestaurantsPage';
+import ProfilePage from './Pages/ProfilePage/ProfilePage';
+
+
+//protects the routes
+//by redirecting the unlogged in users back to login page
+//so that unlogged in people cannot manipulate the link to get into unlogged in pages
+import Wrapper from './Pages/Wrapper';
+
+//navbar
+import Header from './Components/Header/Header';
+
+//hides navbar when in login page or register page 
+import MaybeShowNavBar from './Pages/MaybeShowNavBar';
+
 import "./App.css";
 import "./styles.css";
-import Header from "./Components/Header";
+
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<"landing" | "search">(
-    "landing"
-  );
+ return (
 
-  return (
     <>
-      {/* Simple navigation for demo purposes */}
-      <Header />
-      {currentPage === "landing" && <LandingPage />}
-      {currentPage === "search" && <SearchPage />}
-      <div
-        style={{
-          position: "fixed",
-          bottom: "20px",
-          right: "20px",
-          zIndex: 1000,
-        }}
-      >
-        <button
-          onClick={() => setCurrentPage("landing")}
-          style={{ marginRight: "10px" }}
-        >
-          Landing Page
-        </button>
-        <button onClick={() => setCurrentPage("search")}>Search Page</button>
-      </div>
+
+      <MaybeShowNavBar>
+        <Header />
+      </MaybeShowNavBar>
+
+
+      <Routes>
+        <Route path="/" element={<LoginRegisterPage />} />
+
+        <Route path="/Login" element={<LoginPage />} />
+
+        <Route path="/Register" element={<RegisterPage />} />
+
+        <Route path="/Home" element={
+          <Wrapper>
+            <HomePage />
+          </Wrapper>
+        } />
+
+        <Route path="/Restaurants" element={
+          <Wrapper>
+            <RestaurantsPage />
+          </Wrapper>
+        } />
+
+        <Route path="/Search" element={
+          <Wrapper>
+            <SearchPage />
+          </Wrapper>
+        } />
+
+        <Route path="/Profile" element={
+          <Wrapper>
+            <ProfilePage />
+          </Wrapper>
+        } />
+        
+      </Routes>
+
+
     </>
-  );
+
+  )
+
 }
 
 export default App;

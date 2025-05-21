@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import "./styles.css";
+import supabase from "../../SupabaseAuthentication/SupabaseClient";
+import { useNavigate } from "react-router-dom";
+import "./HomePage.css";
 import CafeCardLarge from "../../Components/CafeCardLarge";
 import ReviewCard from "../../Components/ReviewCard";
 import { Cafe } from "../../types";
@@ -37,6 +39,15 @@ const INITIAL_CAFES: Cafe[] = [
 
 const LandingPage: React.FC = () => {
   const [tasks, setTasks] = useState<Cafe[]>(INITIAL_CAFES);
+  
+    {/*sign out function*/}
+    const navigate = useNavigate();
+
+    const signOut = async () => {
+        const { error } = await supabase.auth.signOut();
+        if (error) throw error;
+        navigate("/login");
+    };
 
   return (
     <div className="landing-container">
@@ -51,6 +62,9 @@ const LandingPage: React.FC = () => {
             return <CafeCardLarge key={index} cafe={task} />;
           })}
         </div>
+        
+        <button onClick={signOut}> This is tempo so that u can sign out lol Sign out</button>
+
       </div>
 
       <div className="landing-reviews-section">
