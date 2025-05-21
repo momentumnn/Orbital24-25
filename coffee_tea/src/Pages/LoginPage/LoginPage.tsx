@@ -72,7 +72,7 @@ function LoginPage(){
                     <button className="button" type="submit">Login!</button>
                 </div>
 
-                <p className="redirect">Don't have an account?<Link to="/register">Register</Link>
+                <p className="redirect">Don't have an account?<Link to="/Register">Register</Link>
                 </p>
             </form>
 

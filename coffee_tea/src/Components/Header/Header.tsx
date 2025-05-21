@@ -10,10 +10,10 @@ const Header: React.FC = () => {
             Coffee, Tea or Me
         </div>
         <nav className= "NavBar">
-            <Link to="/home" className="nav-items">Home</Link>
-            <Link to="/restaurants" className="nav-items">Restaurants</Link>
-            <Link to="/profile"className="nav-items">Profile</Link>
-            <Link to="/search"className="nav-items">Search</Link>
+            <Link to="/Home" className="nav-items">Home</Link>
+            <Link to="/Restaurants" className="nav-items">Restaurants</Link>
+            <Link to="/Profile"className="nav-items">Profile</Link>
+            <Link to="/Search"className="nav-items">Search</Link>
         </nav>
     </div>
   );
