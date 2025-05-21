@@ -1,11 +1,13 @@
 import React , {useState} from "react";
 import supabase from "../SupabaseAuthentication/SupabaseClient";
-import { Link } from "react-router";
+import { Link, useNavigate} from "react-router";
 import './RegisterPage.css';
 
 
 function RegisterPage(){
 
+    
+    const navigate = useNavigate();    
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
@@ -30,6 +32,7 @@ function RegisterPage(){
 
         if (data) {
             setMessage("User account created!");
+            navigate("/Login") ;
         }
 
         setEmail("");
