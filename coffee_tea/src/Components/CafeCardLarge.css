@@ -1,0 +1,12 @@
+.cafe-card-large-content {
+  margin: auto;
+  border-radius: 8px;
+  padding: 20px;
+  width: 262px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+  background-color: #ffe6b8;
+}
+
+.cafe-card-large {
+  padding: 10px;
+}
