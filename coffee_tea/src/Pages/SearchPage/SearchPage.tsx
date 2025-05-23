@@ -1,10 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles.css";
-import CafeItem from "../../Components/CafeItem";
+import CafeItem from "../../Components/CafeCards/CafeItem";
 import FilterSection from "../../Components/FilterSection";
 import MapSection from "../../Components/MapSection";
+import { Cafe } from "../../types";
 
+const INITIAL_CAFES: Cafe[] = [
+  {
+    name: "Mcdonalds",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+    address: "123 sesame street",
+    tags: ["cafe", "kfc"],
+  },
+  {
+    name: "Mcdonalds",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+    address: "123 sesame street",
+    tags: ["cafe", "kfc"],
+  },
+  {
+    name: "Mcdonalds",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+    address: "123 sesame street",
+    tags: ["cafe", "kfc"],
+  },
+  {
+    name: "Mcdonalds",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+    address: "123 sesame street",
+    tags: ["cafe", "kfc"],
+  },
+];
 const SearchPage: React.FC = () => {
+  const [cafeList, setCafeList] = useState<Cafe[]>(INITIAL_CAFES);
+
   return (
     <div className="search-container">
       <MapSection />
@@ -14,26 +47,9 @@ const SearchPage: React.FC = () => {
         <FilterSection />
 
         <div className="cafe-list">
-          <CafeItem
-            name="Mcdonalds"
-            address="123 sesame street"
-            imageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/5b0dfdc542e541f1413d22a16f2c1e0dc072c3fe"
-          />
-          <CafeItem
-            name="Mcdonalds"
-            address="123 sesame street"
-            imageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/53687148cf21aabbf5c11ab98dedb6dd5556b35a"
-          />
-          <CafeItem
-            name="Mcdonalds"
-            address="123 sesame street"
-            imageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/1f3721451c1617bc6479e8fad55d15571577518a"
-          />
-          <CafeItem
-            name="Mcdonalds"
-            address="123 sesame street"
-            imageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/38e28114e0af22056a996f2de1c50a3d450e9239"
-          />
+          {cafeList.map((cafe, index) => {
+            return <CafeItem key={index} cafe={cafe} />;
+          })}
         </div>
 
         <button className="load-more-button">Load more cafes</button>

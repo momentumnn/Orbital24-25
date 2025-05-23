@@ -1,7 +1,39 @@
-import React from "react";
-import CafeCard from "./CafeCard";
-
+import React, { useState } from "react";
+import CafeCard from "./CafeCards/CafeCard";
+import { Cafe } from "../types";
+const INITIAL_CAFES: Cafe[] = [
+  {
+    name: "Mcdonalds",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+    address: "123 sesame street",
+    tags: ["cafe", "kfc"],
+  },
+  {
+    name: "Mcdonalds",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+    address: "123 sesame street",
+    tags: ["cafe", "kfc"],
+  },
+  {
+    name: "Mcdonalds",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+    address: "123 sesame street",
+    tags: ["cafe", "kfc"],
+  },
+  {
+    name: "Mcdonalds",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+    address: "123 sesame street",
+    tags: ["cafe", "kfc"],
+  },
+];
 const MapSection: React.FC = () => {
+  const [cafeList, setCafeList] = useState<Cafe[]>(INITIAL_CAFES);
+
   return (
     <div className="map-section">
       <img
@@ -12,21 +44,9 @@ const MapSection: React.FC = () => {
       <div className="map-overlay">
         <div className="map-overlay-title">Other cafes in your list!</div>
         <div className="cafe-cards-container">
-          <CafeCard
-            name="Mcdonalds"
-            url="https://cdn.builder.io/api/v1/image/assets/TEMP/d4a9f1446c7bff40fed32e4ea0ee7c8f84f94341"
-            address="123 sesame street"
-          />
-          <CafeCard
-            name="Mcdonalds"
-            url="https://cdn.builder.io/api/v1/image/assets/TEMP/21318d627f743495c142351fdcb67e1f64beb114"
-            address="123 sesame street"
-          />
-          <CafeCard
-            name="Mcdonalds"
-            url="https://cdn.builder.io/api/v1/image/assets/TEMP/f9401347f0a5fcca710fda02bbc8c74762c5655e"
-            address="123 sesame street"
-          />
+          {cafeList.map((cafe, index) => {
+            return <CafeCard key={index} cafe={cafe} />;
+          })}
         </div>
       </div>
     </div>

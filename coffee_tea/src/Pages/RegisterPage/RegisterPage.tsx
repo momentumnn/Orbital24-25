@@ -9,13 +9,12 @@ function RegisterPage() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  {
-    /* this submits to supabase the new user
+  /* this submits to supabase the new user
         Supabase also have auto messages if user has already been created and other errors messages
 
         and yes unfortunatetly as of now idk how to also have the user enter their username(aka display name) need more research on this XD
      */
-  }
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setMessage("");
