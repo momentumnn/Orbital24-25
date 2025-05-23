@@ -1,16 +1,17 @@
-type CafeProps = {
-  name: string;
-  url: string;
-  address?: string;
-};
+import { Cafe } from "../../types";
+import "./CafeCards.css";
 
-function CafeCard(props: CafeProps) {
+interface CafeProps {
+  cafe: Cafe;
+}
+
+function CafeCard({ cafe }: CafeProps) {
   return (
     <div className="cafe-card">
       <div>
-        <div className="cafe-name">{props.name}</div>
-        {props.address && (
-          <div className="cafe-address">Address: {props.address}</div>
+        <div className="cafe-name">{cafe.name}</div>
+        {cafe.address && (
+          <div className="cafe-address">Address: {cafe.address}</div>
         )}
         <div className="cafe-tags">
           <div className="cafe-tag">Cafe</div>
@@ -19,7 +20,7 @@ function CafeCard(props: CafeProps) {
         </div>
       </div>
       <div className="cafe-picture">
-        <img src={props.url} alt={props.name} />
+        <img src={cafe.imageUrl} alt={cafe.name} />
       </div>
     </div>
   );

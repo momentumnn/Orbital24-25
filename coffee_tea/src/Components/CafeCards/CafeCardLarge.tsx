@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Cafe } from "../types";
+import { Cafe } from "../../types";
 import "./CafeCardLarge.css";
 
 interface CafeProps {

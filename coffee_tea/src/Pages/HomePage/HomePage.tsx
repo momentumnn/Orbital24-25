@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import supabase from "../../SupabaseAuthentication/SupabaseClient";
 import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
-import CafeCardLarge from "../../Components/CafeCardLarge";
+import CafeCardLarge from "../../Components/CafeCards/CafeCardLarge";
 import ReviewCard from "../../Components/ReviewCard";
 import { Cafe } from "../../types";
 
@@ -38,16 +38,18 @@ const INITIAL_CAFES: Cafe[] = [
 ];
 
 const LandingPage: React.FC = () => {
-  const [tasks, setTasks] = useState<Cafe[]>(INITIAL_CAFES);
-  
-    {/*sign out function*/}
-    const navigate = useNavigate();
+  const [cafeList, setCafeList] = useState<Cafe[]>(INITIAL_CAFES);
 
-    const signOut = async () => {
-        const { error } = await supabase.auth.signOut();
-        if (error) throw error;
-        navigate("/Login");
-    };
+  {
+    /*sign out function*/
+  }
+  const navigate = useNavigate();
+
+  const signOut = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) throw error;
+    navigate("/Login");
+  };
 
   return (
     <div className="landing-container">
@@ -58,13 +60,15 @@ const LandingPage: React.FC = () => {
       <div className="landing-cafes-section">
         <h2 className="landing-section-title">Other cafes in your list!</h2>
         <div className="landing-cafes-container">
-          {tasks.map((task, index) => {
-            return <CafeCardLarge key={index} cafe={task} />;
+          {cafeList.map((cafe, index) => {
+            return <CafeCardLarge key={index} cafe={cafe} />;
           })}
         </div>
-        
-        <button onClick={signOut}> This is tempo so that u can sign out lol Sign out</button>
 
+        <button onClick={signOut}>
+          {" "}
+          This is tempo so that u can sign out lol Sign out
+        </button>
       </div>
 
       <div className="landing-reviews-section">

@@ -9,11 +9,10 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  {
-    /* this handles the login when the submit button is clicked
+  /* this handles the login when the submit button is clicked
         Supabase has auto messages if user enter wrong credentials and other error messages
     */
-  }
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setMessage("");

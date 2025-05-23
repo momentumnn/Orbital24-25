@@ -1,17 +1,16 @@
 import React from "react";
+import { Cafe } from "../../types";
 
-interface CafeItemProps {
-  name: string;
-  address: string;
-  imageUrl: string;
+interface CafeProps {
+  cafe: Cafe;
 }
 
-const CafeItem: React.FC<CafeItemProps> = ({ name, address, imageUrl }) => {
+function CafeItem({ cafe }: CafeProps) {
   return (
     <div className="cafe-item">
       <div className="cafe-item-info">
-        <div className="cafe-item-name">{name}</div>
-        <div className="cafe-item-address">Address: {address}</div>
+        <div className="cafe-item-name">{cafe.name}</div>
+        <div className="cafe-item-address">Address: {cafe.address}</div>
         <div className="cafe-item-details">
           <div className="cafe-item-hours">
             <div className="cafe-item-hours-title">Opening hours</div>
@@ -24,9 +23,9 @@ const CafeItem: React.FC<CafeItemProps> = ({ name, address, imageUrl }) => {
         </div>
         <div className="cafe-item-link">Google maps link</div>
       </div>
-      <img src={imageUrl} alt="Restaurant" className="cafe-item-image" />
+      <img src={cafe.imageUrl} alt="Restaurant" className="cafe-item-image" />
     </div>
   );
-};
+}
 
 export default CafeItem;
