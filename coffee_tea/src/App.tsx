@@ -7,7 +7,7 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import RegisterPage from "./Pages/RegisterPage/RegisterPage";
 import LoginRegisterPage from "./Pages/LoginRegisterPage/LoginRegisterPage";
 import SearchPage from "./Pages/SearchPage/SearchPage";
-import RestaurantsPage from "./Pages/RestaurantsPage/RestaurantsPage";
+import SavedPage from "./Pages/SavedPage/SavedPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 
 //protects the routes
@@ -16,13 +16,12 @@ import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import Wrapper from "./Pages/Wrapper";
 
 //navbar
-import Header from "./Components/Header";
+import Header from "./Components/Header/Header";
 
 //hides navbar when in login page or register page
 import MaybeShowNavBar from "./Pages/MaybeShowNavBar";
 
-import "./App.css";
-import "./styles.css";
+
 
 function App() {
   return (
@@ -48,10 +47,10 @@ function App() {
         />
 
         <Route
-          path="/Restaurants"
+          path="/Saved"
           element={
             <Wrapper>
-              <RestaurantsPage />
+              <SavedPage />
             </Wrapper>
           }
         />

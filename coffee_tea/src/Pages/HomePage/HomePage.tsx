@@ -1,37 +1,36 @@
 import React, { useState } from "react";
-import supabase from "../../SupabaseAuthentication/SupabaseClient";
-import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
-import CafeCardLarge from "../../Components/CafeCards/CafeCardLarge";
+import CafeCardLarge from "../../Components/CafeCardLargeforHome/CafeCardLarge";
 import ReviewCard from "../../Components/ReviewCard";
 import { Cafe } from "../../types";
+import mcdonalds from "../../Assets/McDonalds.jpg"
 
 const INITIAL_CAFES: Cafe[] = [
   {
     name: "Mcdonalds",
     imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+      mcdonalds,
     address: "123 sesame street",
     tags: ["cafe", "kfc"],
   },
   {
     name: "Mcdonalds",
     imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+      mcdonalds,
     address: "123 sesame street",
     tags: ["cafe", "kfc"],
   },
   {
     name: "Mcdonalds",
     imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+      mcdonalds,
     address: "123 sesame street",
     tags: ["cafe", "kfc"],
   },
   {
     name: "Mcdonalds",
     imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+      mcdonalds,
     address: "123 sesame street",
     tags: ["cafe", "kfc"],
   },
@@ -40,16 +39,6 @@ const INITIAL_CAFES: Cafe[] = [
 const LandingPage: React.FC = () => {
   const [cafeList, setCafeList] = useState<Cafe[]>(INITIAL_CAFES);
 
-  {
-    /*sign out function*/
-  }
-  const navigate = useNavigate();
-
-  const signOut = async () => {
-    const { error } = await supabase.auth.signOut();
-    if (error) throw error;
-    navigate("/Login");
-  };
 
   return (
     <div className="landing-container">
@@ -64,11 +53,6 @@ const LandingPage: React.FC = () => {
             return <CafeCardLarge key={index} cafe={cafe} />;
           })}
         </div>
-
-        <button onClick={signOut}>
-          {" "}
-          This is tempo so that u can sign out lol Sign out
-        </button>
       </div>
 
       <div className="landing-reviews-section">

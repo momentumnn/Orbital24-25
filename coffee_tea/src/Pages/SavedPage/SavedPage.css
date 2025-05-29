@@ -1,0 +1,70 @@
+.saved-page h1 {
+  text-align: center;
+}
+.restaurant-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1000px; 
+  padding: 0 1rem; 
+}
+
+.restaurant-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #f9f9f9;
+}
+
+.restaurant-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+.restaurant-info {
+  flex-grow: 1;
+}
+
+.restaurant-info h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.visited-label {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.visited {
+  background-color: #e0f7e9; 
+}
+
+.not-visited {
+  background-color: #fff8e1; 
+}
+.visited-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.visited-button.visited {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+.visited-button.not-visited {
+  background-color: #e2e3e5;
+  color: #383d41;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { Cafe } from "../../types";
+import './CafeItem.css'
 
 interface CafeProps {
   cafe: Cafe;

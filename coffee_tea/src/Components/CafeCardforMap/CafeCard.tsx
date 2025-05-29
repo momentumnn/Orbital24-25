@@ -1,5 +1,5 @@
 import { Cafe } from "../../types";
-import "./CafeCards.css";
+import "./CafeCard.css";
 
 interface CafeProps {
   cafe: Cafe;

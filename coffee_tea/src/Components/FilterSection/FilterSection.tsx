@@ -1,4 +1,5 @@
 import React from "react";
+import './FilterSection.css'
 
 const FilterSection: React.FC = () => {
   return (

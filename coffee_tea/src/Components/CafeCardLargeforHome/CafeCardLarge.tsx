@@ -17,7 +17,6 @@ function CafeCardLarge({ cafe }: CafeProps) {
       />
       <div className="cafe-card-large-content">
         <div className="cafe-card-large-name">{cafe.name}</div>
-
         <div className="cafe-tags">
           {cafe.tags.map((tag, index) => {
             return <div className="cafe-tag">{tag}</div>;

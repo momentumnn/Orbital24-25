@@ -1,0 +1,78 @@
+:root {
+  --sds-color-background-brand-default: #000;
+  --sds-color-background-brand-secondary: #e6e6e6;
+  --color-border: #e6e6e6;
+}
+
+/* Cafe Item Styles */
+.cafe-item {
+  display: flex;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  background-color: #ffe6b8;
+}
+
+.cafe-item-info {
+  flex: 1;
+}
+
+.cafe-item-name {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.cafe-item-address {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.cafe-item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cafe-item-hours-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+}
+
+.cafe-item-tags {
+  display: flex;
+  gap: 10px;
+}
+
+.cafe-item-link {
+  margin-top: 10px;
+}
+
+.cafe-item-image {
+  width: 322px;
+  height: 181px;
+  border-radius: 8px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+@media (max-width: 640px) {
+    .cafe-item {
+    flex-direction: column;
+  }
+
+  .cafe-item-image {
+    position: static;
+    transform: none;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+}
