@@ -22,6 +22,12 @@
     text-align: center;
     padding-bottom: 10px;
 }
+.alert{
+
+    padding-left: 100px;
+    color: red;
+
+}
 
 .email-input{
     padding-left: 100px;
@@ -62,7 +68,13 @@
     justify-content: center;
 }
 .button{
-    font-size: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    font-size: 17px;
+    padding: 12px 24px;
+    border-style: none;
+    cursor: pointer;
 }
 
 .redirect{

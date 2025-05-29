@@ -1,36 +1,38 @@
 import React, { useState } from "react";
-import "./styles.css";
-import CafeItem from "../../Components/CafeCards/CafeItem";
-import FilterSection from "../../Components/FilterSection";
+import "./SearchPage.css";
+import CafeItem from "../../Components/CafeItemforSearch/CafeItem";
+import FilterSection from "../../Components/FilterSection/FilterSection";
 import MapSection from "../../Components/MapSection";
 import { Cafe } from "../../types";
+import mcdonalds from "../../Assets/McDonalds.jpg"
+
 
 const INITIAL_CAFES: Cafe[] = [
   {
     name: "Mcdonalds",
     imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+      mcdonalds,
     address: "123 sesame street",
     tags: ["cafe", "kfc"],
   },
   {
     name: "Mcdonalds",
     imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+      mcdonalds,
     address: "123 sesame street",
     tags: ["cafe", "kfc"],
   },
   {
     name: "Mcdonalds",
     imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+      mcdonalds,
     address: "123 sesame street",
     tags: ["cafe", "kfc"],
   },
   {
     name: "Mcdonalds",
     imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+      mcdonalds,
     address: "123 sesame street",
     tags: ["cafe", "kfc"],
   },

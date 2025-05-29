@@ -40,7 +40,7 @@ function LoginPage() {
         <h1 className="title">Login Now!</h1>
 
         {/* // this is the error message using shortcircuiting */}
-        {{ message } && <span className="alert">{message}</span>}
+        { message  && <span className="alert">{message}</span>}
         <div className="email-input">
           <label className="email-text"> Email: </label>
           <input

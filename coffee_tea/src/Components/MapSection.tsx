@@ -1,32 +1,36 @@
 import React, { useState } from "react";
-import CafeCard from "./CafeCards/CafeCard";
+import CafeCard from "./CafeCardforMap/CafeCard";
+// the mapsection styles are in this folder ^ under the .css file
+
 import { Cafe } from "../types";
+import mcdonalds from "../Assets/McDonalds.jpg"
+
 const INITIAL_CAFES: Cafe[] = [
   {
     name: "Mcdonalds",
     imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+      mcdonalds,
     address: "123 sesame street",
     tags: ["cafe", "kfc"],
   },
   {
     name: "Mcdonalds",
     imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+      mcdonalds,
     address: "123 sesame street",
     tags: ["cafe", "kfc"],
   },
   {
     name: "Mcdonalds",
     imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+      mcdonalds,
     address: "123 sesame street",
     tags: ["cafe", "kfc"],
   },
   {
     name: "Mcdonalds",
     imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/df3a02cacabf2e6fd88f1844f3a50994905b4dac",
+      mcdonalds,
     address: "123 sesame street",
     tags: ["cafe", "kfc"],
   },

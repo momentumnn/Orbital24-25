@@ -11,7 +11,10 @@ const MaybeShowNavBar = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     console.log("location:", location);
-    if (location.pathname === "/Login" || location.pathname === "/Register") {
+    if (location.pathname === '/Login'
+      || location.pathname === '/login'
+      || location.pathname === '/Register'
+      || location.pathname === '/register') {
       setShowNavBar(false);
     } else {
       setShowNavBar(true);
