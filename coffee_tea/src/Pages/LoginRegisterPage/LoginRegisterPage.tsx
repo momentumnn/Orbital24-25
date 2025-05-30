@@ -5,17 +5,16 @@ import thumbnail from "../../Assets/LoginRegisterPageThumbnail.avif"
 import ReviewCard from "../../Components/ReviewCard";
 
 
-function LoginRegisterPage(){
+function LoginRegisterPage() {
 
     let navigate = useNavigate();
 
-    const register = ()=>{
-
+    const register = () => {
         let path = '/Register';
         navigate(path);
     }
-    
-    const login=()=>{
+
+    const login = () => {
         let path = '/Login';
         navigate(path);
     }
@@ -33,7 +32,7 @@ function LoginRegisterPage(){
                     <div className="register">
                         <p>Join the Community!</p>
                         <button onClick={register}>Sign up NOW!</button>
-                    </div>           
+                    </div>
                     <div className="login">
                         <p>Already have an account login </p>
                         <button onClick={login}>Login with us</button>
@@ -103,8 +102,8 @@ function LoginRegisterPage(){
         </div>
 
     );
-        
-    
+
+
 }
 
 export default LoginRegisterPage;
