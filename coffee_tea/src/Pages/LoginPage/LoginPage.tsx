@@ -39,7 +39,7 @@ function LoginPage() {
       <form onSubmit={handleSubmit} className="box">
         <h1 className="title">Login Now!</h1>
 
-        {/* // this is the error message using shortcircuiting */}
+        {/* this is the error message using shortcircuiting */}
         { message  && <span className="alert">{message}</span>}
         <div className="email-input">
           <label className="email-text"> Email: </label>

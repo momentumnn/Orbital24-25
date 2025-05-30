@@ -44,6 +44,10 @@
   margin-bottom: 1rem;
 }
 
+.upload-status-message {
+  color: red;
+}
+
 .input-row {
   display: flex;
   align-items: center;
@@ -81,4 +85,13 @@
   border-radius: 8px;
   margin-top: 1.5rem;
   cursor: pointer;
+}
+
+
+.profile-heading {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
