@@ -1,8 +1,8 @@
-import { Cafe } from "../../types";
+import { Restaurant } from "../../types";
 import "./CafeCard.css";
 
 interface CafeProps {
-  cafe: Cafe;
+  cafe: Restaurant;
 }
 
 function CafeCard({ cafe }: CafeProps) {
@@ -20,7 +20,7 @@ function CafeCard({ cafe }: CafeProps) {
         </div>
       </div>
       <div className="cafe-picture">
-        <img src={cafe.imageUrl} alt={cafe.name} />
+        <img src={cafe.image_url} alt={cafe.name} />
       </div>
     </div>
   );

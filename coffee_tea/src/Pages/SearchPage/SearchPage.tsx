@@ -2,43 +2,41 @@ import React, { useState } from "react";
 import "./SearchPage.css";
 import CafeItem from "../../Components/CafeItemforSearch/CafeItem";
 import FilterSection from "../../Components/FilterSection/FilterSection";
-import MapSection from "../../Components/MapSection";
-import { Cafe } from "../../types";
-import mcdonalds from "../../Assets/McDonalds.jpg"
+import MapSection from "./MapSection";
+import { Restaurant } from "../../types";
+import mcdonalds from "../../Assets/McDonalds.jpg";
 
-
-const INITIAL_CAFES: Cafe[] = [
+const INITIAL_CAFES: Restaurant[] = [
   {
-    name: "Mcdonalds",
-    imageUrl:
-      mcdonalds,
-    address: "123 sesame street",
-    tags: ["cafe", "kfc"],
+    id: 1,
+    name: "Sushi Place",
+    address: "123 Tokyo Street",
+    image_url: mcdonalds,
+    visited: false,
+    save_id: 1,
+    tags: ["sushi", "places"],
   },
   {
-    name: "Mcdonalds",
-    imageUrl:
-      mcdonalds,
-    address: "123 sesame street",
-    tags: ["cafe", "kfc"],
+    id: 2,
+    name: "Pasta Heaven",
+    address: "456 Rome Avenue",
+    image_url: mcdonalds,
+    visited: false,
+    save_id: 2,
+    tags: ["sushi", "places"],
   },
   {
-    name: "Mcdonalds",
-    imageUrl:
-      mcdonalds,
-    address: "123 sesame street",
-    tags: ["cafe", "kfc"],
-  },
-  {
-    name: "Mcdonalds",
-    imageUrl:
-      mcdonalds,
-    address: "123 sesame street",
-    tags: ["cafe", "kfc"],
+    id: 3,
+    name: "Burger World",
+    address: "789 New York Blvd",
+    image_url: mcdonalds,
+    visited: false,
+    save_id: 3,
+    tags: ["sushi", "places"],
   },
 ];
 const SearchPage: React.FC = () => {
-  const [cafeList, setCafeList] = useState<Cafe[]>(INITIAL_CAFES);
+  const [cafeList, setCafeList] = useState<Restaurant[]>(INITIAL_CAFES);
 
   return (
     <div className="search-container">
@@ -56,33 +54,6 @@ const SearchPage: React.FC = () => {
 
         <button className="load-more-button">Load more cafes</button>
       </div>
-
-      <footer className="footer">
-        <div className="footer-content">
-          <div className="footer-logo">Site name</div>
-          <div className="footer-links">
-            {[1, 2, 3].map((index) => (
-              <div key={index} className="footer-column">
-                <div className="footer-topic">Topic</div>
-                <div className="footer-page">Page</div>
-                <div className="footer-page">Page</div>
-                <div className="footer-page">Page</div>
-              </div>
-            ))}
-          </div>
-          <div className="social-links">
-            {[1, 2, 3, 4].map((index) => (
-              <div key={index} className="social-icon">
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: `<svg class="icon" style="width: 24px; height: 24px; fill: #828282"></svg>`,
-                  }}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };

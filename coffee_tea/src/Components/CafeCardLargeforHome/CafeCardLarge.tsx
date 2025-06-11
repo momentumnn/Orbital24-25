@@ -1,17 +1,17 @@
 import React from "react";
 
-import { Cafe } from "../../types";
+import { Restaurant } from "../../types";
 import "./CafeCardLarge.css";
 
 interface CafeProps {
-  cafe: Cafe;
+  cafe: Restaurant;
 }
 
 function CafeCardLarge({ cafe }: CafeProps) {
   return (
     <div className="cafe-card-large">
       <img
-        src={cafe.imageUrl}
+        src={cafe.image_url}
         alt={cafe.name}
         className="cafe-card-large-image"
       />
