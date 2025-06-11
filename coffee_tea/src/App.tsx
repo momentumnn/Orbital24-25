@@ -21,8 +21,6 @@ import Header from "./Components/Header/Header";
 //hides navbar when in login page or register page
 import MaybeShowNavBar from "./Pages/MaybeShowNavBar";
 
-
-
 function App() {
   return (
     <>

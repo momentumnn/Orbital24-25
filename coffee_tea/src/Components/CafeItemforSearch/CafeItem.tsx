@@ -1,9 +1,9 @@
 import React from "react";
-import { Cafe } from "../../types";
-import './CafeItem.css'
+import { Restaurant } from "../../types";
+import "./CafeItem.css";
 
 interface CafeProps {
-  cafe: Cafe;
+  cafe: Restaurant;
 }
 
 function CafeItem({ cafe }: CafeProps) {
@@ -24,7 +24,7 @@ function CafeItem({ cafe }: CafeProps) {
         </div>
         <div className="cafe-item-link">Google maps link</div>
       </div>
-      <img src={cafe.imageUrl} alt="Restaurant" className="cafe-item-image" />
+      <img src={cafe.image_url} alt="Restaurant" className="cafe-item-image" />
     </div>
   );
 }

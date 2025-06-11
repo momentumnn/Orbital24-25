@@ -1,6 +1,9 @@
-export interface Cafe {
+export interface Restaurant {
+  id: number;
   name: string;
-  imageUrl: string;
   address: string;
+  image_url: string;
+  visited: boolean;
+  save_id: number;
   tags: string[];
 }

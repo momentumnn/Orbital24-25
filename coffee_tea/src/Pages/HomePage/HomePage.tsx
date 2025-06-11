@@ -2,43 +2,41 @@ import React, { useState } from "react";
 import "./HomePage.css";
 import CafeCardLarge from "../../Components/CafeCardLargeforHome/CafeCardLarge";
 import ReviewCard from "../../Components/ReviewCard";
-import { Cafe } from "../../types";
-import mcdonalds from "../../Assets/McDonalds.jpg"
+import { Restaurant } from "../../types";
+import mcdonalds from "../../Assets/McDonalds.jpg";
 
-const INITIAL_CAFES: Cafe[] = [
+const INITIAL_CAFES: Restaurant[] = [
   {
-    name: "Mcdonalds",
-    imageUrl:
-      mcdonalds,
-    address: "123 sesame street",
-    tags: ["cafe", "kfc"],
+    id: 1,
+    name: "Sushi Place",
+    address: "123 Tokyo Street",
+    image_url: mcdonalds,
+    visited: false,
+    save_id: 1,
+    tags: ["sushi", "places"],
   },
   {
-    name: "Mcdonalds",
-    imageUrl:
-      mcdonalds,
-    address: "123 sesame street",
-    tags: ["cafe", "kfc"],
+    id: 2,
+    name: "Pasta Heaven",
+    address: "456 Rome Avenue",
+    image_url: mcdonalds,
+    visited: false,
+    save_id: 2,
+    tags: ["sushi", "places"],
   },
   {
-    name: "Mcdonalds",
-    imageUrl:
-      mcdonalds,
-    address: "123 sesame street",
-    tags: ["cafe", "kfc"],
-  },
-  {
-    name: "Mcdonalds",
-    imageUrl:
-      mcdonalds,
-    address: "123 sesame street",
-    tags: ["cafe", "kfc"],
+    id: 3,
+    name: "Burger World",
+    address: "789 New York Blvd",
+    image_url: mcdonalds,
+    visited: false,
+    save_id: 3,
+    tags: ["sushi", "places"],
   },
 ];
 
 const LandingPage: React.FC = () => {
-  const [cafeList, setCafeList] = useState<Cafe[]>(INITIAL_CAFES);
-
+  const [cafeList, setCafeList] = useState<Restaurant[]>(INITIAL_CAFES);
 
   return (
     <div className="landing-container">
