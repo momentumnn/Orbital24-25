@@ -1,18 +1,23 @@
-import React, { useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import CafeCard from "../../Components/CafeCardforMap/CafeCard";
 // the mapsection styles are in this folder ^ under the .css file
 
-import { Restaurant } from "../../types";
+import { AutocompleteMode, Restaurant } from "../../types";
 import {
-  AdvancedMarker,
-  APIProvider,
-  InfoWindow,
-  Map,
-  MapCameraChangedEvent,
-  Pin,
-} from "@vis.gl/react-google-maps";
+  GoogleMap,
+  Marker,
+  Circle,
+  MarkerClusterer,
+  useLoadScript,
+} from "@react-google-maps/api";
 import mcdonalds from "../../Assets/McDonalds.jpg";
-import { Opacity } from "@mui/icons-material";
+import { Opacity, WidthFull } from "@mui/icons-material";
+import Places from "./Places";
+import { APIProvider, ControlPosition, Map } from "@vis.gl/react-google-maps";
+import AutocompleteControl from "./autocomplete-control";
+import AutocompleteResult from "./autocomplete-result";
+
+type LatLngLiteral = google.maps.LatLngLiteral;
 
 const INITIAL_CAFES: Restaurant[] = [
   {
@@ -47,50 +52,42 @@ const INITIAL_CAFES: Restaurant[] = [
 const mapsAPI: string = process.env.REACT_APP_GOOGLE_MAPS_API_KEY as string;
 const mapID: string = process.env.REACT_APP_GOOGLE_MAPS_MAP_ID as string;
 const position = { lat: 1.3521, lng: 103.8198 };
-const MapSection: React.FC = () => {
-  const [cafeList, setCafeList] = useState<Restaurant[]>(INITIAL_CAFES);
-  const [open, setOpen] = useState(false);
+const options = { disableDefaultUI: true };
+const implementations: Array<AutocompleteMode> = [
+  { id: "custom-hybrid", label: "Custom w/ UI Library" },
+];
+export default function MapSection() {
+  const [selectedImplementation, setSelectedImplementation] =
+    useState<AutocompleteMode>(implementations[0]);
+  const [selectedPlace, setSelectedPlace] =
+    useState<google.maps.places.Place | null>(null);
 
   return (
-    <div className="map-section">
-      <APIProvider apiKey={mapsAPI}>
-        <Map
-          mapId={mapID}
-          style={{ width: "100vw", height: "80vh" }}
-          defaultZoom={13}
-          defaultCenter={position}
-          gestureHandling={"greedy"}
-          disableDefaultUI={true}
-          onCameraChanged={(ev: MapCameraChangedEvent) =>
-            console.log(
-              "camera changed:",
-              ev.detail.center,
-              "zoom:",
-              ev.detail.zoom
-            )
-          }
-        >
-          <AdvancedMarker
-            position={position}
-            onClick={() => setOpen(true)}
-          ></AdvancedMarker>
-          {/* <div className="map-overlay">
-            <div className="map-overlay-title">Other cafes in your list!</div>
-            <div className="cafe-cards-container">
-              {cafeList.map((cafe, index) => {
-                return <CafeCard key={index} cafe={cafe} />;
-              })}
-            </div>
-          </div> */}
-          {open && (
-            <InfoWindow position={position} onCloseClick={() => setOpen(false)}>
-              <p>hello</p>
-            </InfoWindow>
-          )}
-        </Map>
-      </APIProvider>
-    </div>
-  );
-};
+    <APIProvider apiKey={mapsAPI}>
+      <Map
+        style={{ width: "100vw", height: "80vh" }}
+        defaultZoom={3}
+        defaultCenter={position}
+        gestureHandling={"greedy"}
+        disableDefaultUI={true}
+      >
+        <AutocompleteControl
+          controlPosition={ControlPosition.TOP_LEFT}
+          selectedImplementation={selectedImplementation}
+          onPlaceSelect={setSelectedPlace}
+        />
 
-export default MapSection;
+        <AutocompleteResult place={selectedPlace} />
+      </Map>
+      <div className="map-overlay">
+        <div className="map-overlay-title">Other cafes in your list!</div>
+        {/* <Places setOffice={} /> */}
+        <div className="cafe-cards-container">
+          {INITIAL_CAFES.map((cafe, index) => {
+            return <CafeCard key={index} cafe={cafe} />;
+          })}
+        </div>
+      </div>
+    </APIProvider>
+  );
+}

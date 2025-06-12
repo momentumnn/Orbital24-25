@@ -7,3 +7,4 @@ export interface Restaurant {
   save_id: number;
   tags: string[];
 }
+export type AutocompleteMode = { id: string; label: string };
