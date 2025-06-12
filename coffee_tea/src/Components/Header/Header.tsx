@@ -47,30 +47,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
-const Header: React.FC = () => {
-  return (
-    <div className="header">
-      <div className="ourname">Coffee, Tea or Me</div>
-      <div className="header-right">
-        <Link to="/Home">Home</Link>
-        <Link to="/Saved">Saved</Link>
-        <Link to="/Profile">Profile</Link>
-        <Toolbar>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon>
-                <Link to="/Search" />
-              </SearchIcon>
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-        </Toolbar>
-      </div>
+const Header: React.FC = () => (
+  <div className="header">
+    <div className="ourname">Coffee, Tea or Me</div>
+    <div className="header-right">
+      <Link to="/Home">Home</Link>
+      <Link to="/Saved">Saved</Link>
+      <Link to="/Profile">Profile</Link>
+      <Link to="/Search">Search</Link>
     </div>
-  );
-};
+  </div>
+);
 
 export default Header;
