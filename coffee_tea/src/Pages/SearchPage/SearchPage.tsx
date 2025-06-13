@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./SearchPage.css";
 import CafeItem from "../../Components/CafeItemforSearch/CafeItem";
 import FilterSection from "../../Components/FilterSection/FilterSection";
 import MapSection from "./MapSection";
 import { Restaurant } from "../../types";
 import mcdonalds from "../../Assets/McDonalds.jpg";
+import supabase from "../../SupabaseAuthentication/SupabaseClient";
+import { data } from "react-router";
 
 const INITIAL_CAFES: Restaurant[] = [
   {
@@ -35,15 +37,43 @@ const INITIAL_CAFES: Restaurant[] = [
     tags: ["sushi", "places"],
   },
 ];
-const SearchPage: React.FC = () => {
+function SearchPage() {
   const [cafeList, setCafeList] = useState<Restaurant[]>(INITIAL_CAFES);
+  const [displayname, setDisplayname] = useState<string>("");
 
+  useEffect(() => {
+    const fetchUsername = async () => {
+      const { data: userData, error: userError } =
+        await supabase.auth.getUser();
+      const user = userData?.user;
+
+      if (!user || userError) {
+        console.error("User not found");
+        return;
+      }
+
+      const { data, error } = await supabase
+        .from("Public_Profile")
+        .select("username")
+        .eq("user_id", user.id)
+        .single();
+
+      if (error) {
+        console.error("Error fetching username:", error.message);
+      } else {
+        setDisplayname(data.username);
+      }
+    };
+
+    fetchUsername();
+  }, []);
+  console.log({ displayname });
   return (
     <div className="search-container">
       <MapSection />
       <div className="search-content">
         <div className="section-title">List of your saved cafes!</div>
-
+        {displayname}
         <FilterSection />
 
         <div className="cafe-list">
@@ -56,6 +86,6 @@ const SearchPage: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
 export default SearchPage;

@@ -36,6 +36,7 @@ export const AutocompleteCustomHybrid = ({ onPlaceSelect }: Props) => {
             "location",
             "svgIconMaskURI",
             "iconBackgroundColor",
+            "displayName",
           ],
         })
         .then(() => {
@@ -61,7 +62,7 @@ export const AutocompleteCustomHybrid = ({ onPlaceSelect }: Props) => {
         placeholder="Search for a place"
         data={predictions}
         dataKey="placeId"
-        textField="text"
+        textField="mainText"
         value={inputValue}
         onChange={handleInputChange}
         onSelect={handleSelect}

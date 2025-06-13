@@ -66,7 +66,8 @@ export default function MapSection() {
     <APIProvider apiKey={mapsAPI}>
       <Map
         style={{ width: "100vw", height: "80vh" }}
-        defaultZoom={3}
+        mapId={mapID}
+        defaultZoom={13}
         defaultCenter={position}
         gestureHandling={"greedy"}
         disableDefaultUI={true}
@@ -76,18 +77,20 @@ export default function MapSection() {
           selectedImplementation={selectedImplementation}
           onPlaceSelect={setSelectedPlace}
         />
-
+        {selectedPlace?.displayName}
         <AutocompleteResult place={selectedPlace} />
       </Map>
-      <div className="map-overlay">
+    </APIProvider>
+  );
+}
+{
+  /* <div className="map-overlay">
         <div className="map-overlay-title">Other cafes in your list!</div>
-        {/* <Places setOffice={} /> */}
+        <Places setOffice={} />
         <div className="cafe-cards-container">
           {INITIAL_CAFES.map((cafe, index) => {
             return <CafeCard key={index} cafe={cafe} />;
           })}
         </div>
-      </div>
-    </APIProvider>
-  );
+      </div> */
 }
