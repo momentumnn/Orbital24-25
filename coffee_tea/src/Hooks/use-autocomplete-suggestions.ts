@@ -75,6 +75,7 @@ export function useAutocompleteSuggestions(
     const request: google.maps.places.AutocompleteRequest = {
       ...requestOptions,
       input: inputString,
+      locationBias: { lat: 1.3521, lng: 103.8198 },
       sessionToken: sessionTokenRef.current
     };
 
