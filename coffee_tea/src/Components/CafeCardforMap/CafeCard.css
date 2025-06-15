@@ -2,7 +2,7 @@
   display: flex;
   gap: 20px;
   overflow-x: auto;
-  padding: 20px;
+  padding: 5px;
 }
 
 /* Cafe Card Styles */
@@ -47,8 +47,8 @@
 }
 
 .cafe-picture img {
-  width: 100%;
-  height: 50%;
+  width: 180px;
+  height: 80px;
   border-radius: 8px;
 }
 
@@ -73,6 +73,7 @@
   border-radius: 9px;
   padding: 20px;
   background-color: #e8d6d6;
+  opacity: 0.9;
 }
 
 .map-overlay-title {
