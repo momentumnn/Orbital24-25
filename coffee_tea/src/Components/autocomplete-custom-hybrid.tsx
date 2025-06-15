@@ -37,6 +37,12 @@ export const AutocompleteCustomHybrid = ({ onPlaceSelect }: Props) => {
             "svgIconMaskURI",
             "iconBackgroundColor",
             "displayName",
+            "formattedAddress",
+            "id",
+            "rating",
+            "regularOpeningHours",
+            "photos",
+            "reviews",
           ],
         })
         .then(() => {

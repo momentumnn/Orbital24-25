@@ -8,6 +8,9 @@ interface CafeProps {
 function CafeCard({ cafe }: CafeProps) {
   return (
     <div className="cafe-card">
+      <div className="cafe-picture">
+        <img src={cafe.image_url} alt={cafe.name} />
+      </div>
       <div>
         <div className="cafe-name">{cafe.name}</div>
         {cafe.address && (
@@ -18,9 +21,6 @@ function CafeCard({ cafe }: CafeProps) {
           <div className="cafe-tag">Cafe</div>
           <div className="cafe-tag">Cafe</div>
         </div>
-      </div>
-      <div className="cafe-picture">
-        <img src={cafe.image_url} alt={cafe.name} />
       </div>
     </div>
   );

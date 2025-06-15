@@ -8,3 +8,5 @@ export interface Restaurant {
   tags: string[];
 }
 export type AutocompleteMode = { id: string; label: string };
+
+export type UserCoordinates = { lat: number; lng: number };

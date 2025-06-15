@@ -11,29 +11,10 @@
   height: 808px;
 }
 
-
-
-.map-overlay {
-  opacity: 0.9;
-  position: absolute;
-  bottom: 0;
-  left: 58px;
-  right: 58px;
-  border-radius: 9px;
-  padding: 20px;
-  background-color: #e8d6d6;
-}
-
 .autocomplete-container {
   width: 80vh;
 }
 
-.map-overlay-title {
-  font-size: 30px;
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 20px;
-}
 
 .search-content {
   padding: 40px 76px;

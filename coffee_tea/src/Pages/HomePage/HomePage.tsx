@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./HomePage.css";
 import CafeCardLarge from "../../Components/CafeCardLargeforHome/CafeCardLarge";
 import ReviewCard from "../../Components/ReviewCard";
-import { Restaurant } from "../../types";
+import { Restaurant, UserCoordinates } from "../../types";
 import mcdonalds from "../../Assets/McDonalds.jpg";
+import { UserLocationContext } from "../../Context/UserLocationContext";
 
 const INITIAL_CAFES: Restaurant[] = [
   {

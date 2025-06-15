@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import supabase from "../../SupabaseAuthentication/SupabaseClient";
 import { Link, useNavigate } from "react-router";
-import './RegisterPage.css';
-
+import "./RegisterPage.css";
 
 function RegisterPage() {
-
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -41,7 +39,9 @@ function RegisterPage() {
         ]);
 
       if (profileError) {
-        setMessage("Account created, but profile error: " + profileError.message);
+        setMessage(
+          "Account created, but profile error: " + profileError.message
+        );
       } else {
         setMessage("User account created!");
         navigate("/Login");
@@ -55,12 +55,8 @@ function RegisterPage() {
 
   return (
     <div className="page">
-
-      <form onSubmit={handleSubmit}
-        className="box" >
-        <h1 className="title">
-          Register Now!
-        </h1>
+      <form onSubmit={handleSubmit} className="box">
+        <h1 className="title">Register Now!</h1>
 
         {message && <span className="alert">{message}</span>}
 
@@ -72,7 +68,8 @@ function RegisterPage() {
             className="email"
             type="email"
             placeholder="Email here..."
-            required />
+            required
+          />
         </div>
 
         <div className="username-input">
@@ -83,7 +80,8 @@ function RegisterPage() {
             className="username"
             type="text"
             placeholder="Username here..."
-            required />
+            required
+          />
         </div>
 
         <div className="password-input">
@@ -94,29 +92,22 @@ function RegisterPage() {
             className="password"
             type="password"
             placeholder="Password here..."
-            required />
+            required
+          />
         </div>
 
         <div className="center">
-          <button className="button" type="submit">Register!</button>
+          <button className="button" type="submit">
+            Register!
+          </button>
         </div>
 
-        <p className="redirect">Already have an account?<Link to="/Login">Login</Link>
+        <p className="redirect">
+          Already have an account?<Link to="/Login">Login</Link>
         </p>
       </form>
-
     </div>
-
-
-
-
-
-
-
-
   );
-
-
 }
 
 export default RegisterPage;
