@@ -8,7 +8,6 @@ function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  const [username, setUsername] = useState("");
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -19,38 +18,16 @@ function RegisterPage() {
       email: email,
       password: password,
     });
+
     if (error) {
       setMessage(error.message);
-      return;
-    }
-
-    //data.user contains the auth.user data like uuid and email
-    //creating a new row in public profile table for the new user
-    const user = data.user;
-    if (user) {
-      const { error: profileError } = await supabase
-        .from("Public_Profile")
-        .insert([
-          {
-            user_id: user.id,
-            username: username,
-            Profile_pic: null,
-          },
-        ]);
-
-      if (profileError) {
-        setMessage(
-          "Account created, but profile error: " + profileError.message
-        );
-      } else {
-        setMessage("User account created!");
-        navigate("/Login");
-      }
+    } else {
+      setMessage("User account created!");
+      navigate("/Login");
     }
 
     setEmail("");
     setPassword("");
-    setUsername("");
   };
 
   return (
@@ -71,19 +48,6 @@ function RegisterPage() {
             required
           />
         </div>
-
-        <div className="username-input">
-          <label className="username-text"> Username: </label>
-          <input
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-            className="username"
-            type="text"
-            placeholder="Username here..."
-            required
-          />
-        </div>
-
         <div className="password-input">
           <label className="password-text"> Password: </label>
           <input
