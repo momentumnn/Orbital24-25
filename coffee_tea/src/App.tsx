@@ -9,6 +9,8 @@ import LoginRegisterPage from "./Pages/LoginRegisterPage/LoginRegisterPage";
 import SearchPage from "./Pages/SearchPage/SearchPage";
 import SavedPage from "./Pages/SavedPage/SavedPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
+import RestaurantDetailPage from './Pages/RestaurantDetailPage/RestaurantDetail';
+
 
 //protects the routes
 //by redirecting the unlogged in users back to login page
@@ -52,6 +54,12 @@ function App() {
             </Wrapper>
           }
         />
+
+        <Route path="/Saved/:id" element={
+          <Wrapper>
+            <RestaurantDetailPage />
+          </Wrapper>
+          } />
 
         <Route
           path="/Search"

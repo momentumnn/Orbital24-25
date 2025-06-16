@@ -50,7 +50,7 @@ const MapSection = () => {
   const userLocation: LatLngLiteral = useContext(UserLocationContext);
   const position = { lat: 1.3521, lng: 103.8198 };
 
-  // console.log(userLocation);
+  //console.log(userLocation);
   return (
     <APIProvider apiKey={mapsAPI}>
       <Map

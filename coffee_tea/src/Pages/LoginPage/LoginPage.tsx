@@ -11,7 +11,13 @@ function LoginPage() {
 
   /* this handles the login when the submit button is clicked
         Supabase has auto messages if user enter wrong credentials and other error messages
+        and also created profile on first login by checking to see if there is a row already created for the user
     */
+
+  const getUsernameFromEmail = (email: string) => {
+    return email.split("@")[0];
+  };
+
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -28,10 +34,43 @@ function LoginPage() {
       return;
     }
 
-    if (data) {
-      navigate("/Home");
-      return null;
+    //data.user contains the auth.user data like uuid and email
+    const user = data.user;
+
+    //this will find the matching user.id with the user_id and check that only 1 row exist or none
+    const { data: profileData, error: profileGetError } = await supabase
+      .from("Public_Profile")
+      .select("user_id")
+      .eq("user_id", user.id)
+      .single(); // expects only 1 row or none
+
+    // PGRST116 is postgres code for no row 
+    if (profileGetError && profileGetError.code === "PGRST116") {
+
+      const generatedUsername = getUsernameFromEmail(email);
+      const { error: profileInsertError } = await supabase
+        .from("Public_Profile")
+        .insert([
+          {
+            user_id: user.id,
+            username: generatedUsername,
+            Profile_pic: null,
+          },
+        ]);
+
+      if (profileInsertError) {
+        //trouble inseting a row
+        setMessage("Profile creation error: " + profileInsertError.message);
+        return;
+      }
+
+    } else if (profileGetError) {
+      //more than 1 row exist which should not happen
+      setMessage("Error checking profile: " + profileGetError.message);
+      return;
     }
+
+    navigate("/Home");
   };
 
   return (
@@ -40,7 +79,7 @@ function LoginPage() {
         <h1 className="title">Login Now!</h1>
 
         {/* this is the error message using shortcircuiting */}
-        { message  && <span className="alert">{message}</span>}
+        {message && <span className="alert">{message}</span>}
         <div className="email-input">
           <label className="email-text"> Email: </label>
           <input
