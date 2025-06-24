@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './SavedPage.css';
 import mcdonalds from "../../Assets/McDonalds.jpg"
 import supabase from '../../SupabaseAuthentication/SupabaseClient';
@@ -52,8 +52,8 @@ function SavedPage() {
       // those with "restaurants" are from the restaurants table in supabase
       const formatted = data.map((entry: any) => ({
         id: entry.restaurants.id,
-        name: entry.restaurants.displayName, 
-        address: entry.restaurants.formattedAddress, 
+        name: entry.restaurants.displayName,
+        address: entry.restaurants.formattedAddress,
         image_url: entry.restaurants.image_url,
         visited: entry.visited,
         save_id: entry.id,
@@ -98,29 +98,30 @@ function SavedPage() {
     <div className="saved-page">
       <h1>Saved Restaurants</h1>
       <ul className="restaurant-list">
-        {restaurants.map(restaurant => (
-          <li key={restaurant.save_id} className={`restaurant-item ${restaurant.visited ? 'visited' : 'not-visited'}`}
-            onClick={() => handleRestaurantClick(restaurant.id)} 
-          >
-            <div className="restaurant-left">
-              <img
-                src={restaurant.image_url}
-                alt={restaurant.name}
-                className="restaurant-image"
-              />
-            </div>
-            <div className="restaurant-info">
-              <h2>{restaurant.name}</h2>
-              <p>{restaurant.address}</p>
-            </div>
-            <button
-              className={`visited-button ${restaurant.visited ? 'visited' : 'not-visited'}`}
-              onClick={(e) => handleVisitedClick(e, restaurant.save_id, restaurant.visited)}
+        {restaurants.sort((a, b) => Number(a.visited) - Number(b.visited))
+          .map(restaurant => (
+            <li key={restaurant.save_id} className={`restaurant-item ${restaurant.visited ? 'visited' : 'not-visited'}`}
+              onClick={() => handleRestaurantClick(restaurant.id)}
             >
-              {restaurant.visited ? 'Visited' : 'Not visited'}
-            </button>
-          </li>
-        ))}
+              <div className="restaurant-left">
+                <img
+                  src={restaurant.image_url}
+                  alt={restaurant.name}
+                  className="restaurant-image"
+                />
+              </div>
+              <div className="restaurant-info">
+                <h2>{restaurant.name}</h2>
+                <p>{restaurant.address}</p>
+              </div>
+              <button
+                className={`visited-button ${restaurant.visited ? 'visited' : 'not-visited'}`}
+                onClick={(e) => handleVisitedClick(e, restaurant.save_id, restaurant.visited)}
+              >
+                {restaurant.visited ? 'Visited' : 'Not visited'}
+              </button>
+            </li>
+          ))}
 
       </ul>
     </div>

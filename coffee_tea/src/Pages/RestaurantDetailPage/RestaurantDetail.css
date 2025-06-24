@@ -119,3 +119,16 @@
   padding: 2rem;
   text-align: center;
 }
+
+.restaurant-detail-placeholder {
+  background-color: #f3f3f3;
+  color: #777;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-style: italic;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
