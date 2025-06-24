@@ -60,6 +60,9 @@
   background: #ccc;
   border-radius: 4px;
 }
+.landing-cafe{
+  cursor: pointer;
+}
 
 
 /* Responsive Styles */

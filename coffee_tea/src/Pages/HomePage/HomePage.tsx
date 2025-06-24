@@ -11,7 +11,7 @@ function HomePage() {
   const [restaurants, setRestaurants] = useState<RestaurantHome[]>([]);
   const navigate = useNavigate();
 
-useEffect(() => {
+  useEffect(() => {
     const fetchUnvisitedRestaurants = async () => {
       const { data: { user }, error: userError } = await supabase.auth.getUser();
 
@@ -60,12 +60,18 @@ useEffect(() => {
         <h2 className="landing-section-title">See what others have saved</h2>
         <div className="landing-cafes-container">
           {restaurants.map((restaurant) => (
-            <div
+            <div className="landing-cafe"
               key={restaurant.id}
               onClick={() => navigate(`/Home/${restaurant.id}`)}
-              style={{ cursor: "pointer" }}
             >
-              <CafeCardLarge cafe={restaurant} />
+              <CafeCardLarge
+                cafe={restaurant}
+                onRemove={(id) => {
+                  setRestaurants((prev) =>
+                    prev.filter((r) => r.id !== id)
+                  );
+                }}
+              />
             </div>
           ))}
         </div>
