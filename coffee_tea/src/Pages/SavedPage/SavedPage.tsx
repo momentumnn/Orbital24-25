@@ -3,22 +3,14 @@ import './SavedPage.css';
 import mcdonalds from "../../Assets/McDonalds.jpg"
 import supabase from '../../SupabaseAuthentication/SupabaseClient';
 import { useNavigate } from 'react-router';
+import { RestaurantSaved } from '../../Types/SavedRestaurant';
 
-
-interface Restaurant {
-  id: string;
-  name: string;
-  address: string;
-  image_url: string;
-  visited: boolean;
-  save_id: number;
-}
 
 
 function SavedPage() {
 
   const navigate = useNavigate();
-  const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
+  const [restaurants, setRestaurants] = useState<RestaurantSaved[]>([]);
 
   useEffect(() => {
 
