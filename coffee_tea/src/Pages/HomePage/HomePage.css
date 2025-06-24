@@ -20,8 +20,7 @@
   font-weight: 700;
   letter-spacing: -1.28px;
   width: 100%;
-  padding: 0 2px;
-  padding-left: 2px;
+  padding-left: 16px;
 }
 
 /* Cafes Section Styles */
@@ -38,75 +37,30 @@
 
 .landing-cafes-container {
   display: flex;
+  flex-direction: row;
   gap: 32px;
   overflow-x: auto;
-  padding: 31px 0;
+  overflow-y: hidden;
+  padding: 16px 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Reviews Section Styles */
-.landing-reviews-section {
-  padding: 40px 116px;
+.landing-cafes-container > div {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
 }
 
-.landing-reviews-container {
-  display: flex;
-  gap: 32px;
+/* Optional scrollbar styling for nicer appearance */
+.landing-cafes-container::-webkit-scrollbar {
+  height: 8px;
 }
 
-/* Footer Styles */
-.landing-footer {
-  padding: 48px 80px;
-  background-color: #e6e6e6;
+.landing-cafes-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
 }
 
-.landing-footer-content {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.landing-footer-logo {
-  font-size: 24px;
-  color: #000;
-}
-
-.landing-footer-social {
-  display: flex;
-  gap: 8px;
-  margin-top: 40px;
-}
-
-.landing-footer-social i {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #828282;
-  font-size: 20px;
-}
-
-.landing-footer-links {
-  display: flex;
-  gap: 44px;
-  margin-top: 20px;
-}
-
-.landing-footer-column {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.landing-footer-topic {
-  font-size: 16px;
-  color: #000;
-}
-
-.landing-footer-page {
-  font-size: 16px;
-  color: #454545;
-}
 
 /* Responsive Styles */
 @media (max-width: 991px) {

@@ -1,28 +1,27 @@
 import React from "react";
-
-import { Restaurant } from "../../types";
+import { RestaurantHome } from "../../Types/RestaurantHome";
 import "./CafeCardLarge.css";
 
 interface CafeProps {
-  cafe: Restaurant;
+  cafe: RestaurantHome;
 }
 
 function CafeCardLarge({ cafe }: CafeProps) {
+           /* <div className="cafe-tags">
+          {cafe.tags.map((tag, index) => {
+            return <div className="cafe-tag">{tag}</div>;
+          })}
+        </div>*/
   return (
     <div className="cafe-card-large">
       <img
         src={cafe.image_url}
-        alt={cafe.name}
+        alt={cafe.displayName}
         className="cafe-card-large-image"
       />
       <div className="cafe-card-large-content">
-        <div className="cafe-card-large-name">{cafe.name}</div>
-        <div className="cafe-tags">
-          {cafe.tags.map((tag, index) => {
-            return <div className="cafe-tag">{tag}</div>;
-          })}
-        </div>
-        <div className="cafe-card-large-address">Address: {cafe.address}</div>
+        <div className="cafe-card-large-name">{cafe.displayName}</div>
+        <div className="cafe-card-large-address">Address: {cafe.formattedAddress}</div>
       </div>
     </div>
   );

@@ -1,22 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import supabase from "../../SupabaseAuthentication/SupabaseClient";
-
+import { Review } from "../../Types/Review";
+import { Restaurant } from "../../Types/Restaurant";
 import "./RestaurantDetail.css";
-
-interface Restaurant {
-  id: string;
-  displayName: string;
-  formattedAddress: string;
-  image_url: string;
-  latlng: { lng: string; lat: string;};
-}
-interface Review {
-  id: number;
-  username: string;
-  review: string;
-  created_at: string;
-}
 
 function RestaurantDetailPage() {
 
