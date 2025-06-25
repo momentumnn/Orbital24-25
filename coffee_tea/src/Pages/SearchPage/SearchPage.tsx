@@ -36,6 +36,12 @@ const INITIAL_CAFES: Restaurant[] = [
     tags: ["sushi", "places"],
   },
 ];
+const options = {
+  enableHighAccuracy: false,
+  timeout: 5000,
+  maximumAge: 0,
+};
+
 function SearchPage() {
   const position = { lat: 1.3521, lng: 103.8198 };
 
@@ -43,13 +49,19 @@ function SearchPage() {
   const [displayname, setDisplayname] = useState<string>("");
   const [userLocation, setUserLocation] = useState<UserCoordinates>(position);
   const getUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(function (pos) {
-      // console.log(pos);
-      setUserLocation({
-        lat: pos.coords.latitude,
-        lng: pos.coords.longitude,
-      });
-    });
+    navigator.geolocation.getCurrentPosition(
+      function (pos) {
+        // console.log(pos);
+        setUserLocation({
+          lat: pos.coords.latitude,
+          lng: pos.coords.longitude,
+        });
+      },
+      function error(err) {
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+      },
+      options
+    );
   };
 
   useEffect(() => {
