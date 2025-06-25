@@ -43,6 +43,7 @@ export const AutocompleteCustomHybrid = ({ onPlaceSelect }: Props) => {
             "regularOpeningHours",
             "photos",
             "reviews",
+            "types",
           ],
         })
         .then(() => {

@@ -7,6 +7,7 @@ import {
 } from "@vis.gl/react-google-maps";
 import React, { useEffect, useState } from "react";
 import supabase from "../../SupabaseAuthentication/SupabaseClient";
+import { updateRestaurant, getRestaurantId } from "../../api/restaurants";
 
 interface Props {
   place: google.maps.places.Place | null;
@@ -30,48 +31,26 @@ const AutocompleteResult = ({ place }: Props) => {
     } else {
       setPhoto(null);
     }
+    setSave(false);
   }, [map, place]);
   if (!place) return null;
-  const updateRestaurant = async () => {
-    const { error } = await supabase.from("restaurants").upsert(
-      {
-        displayName: place.displayName,
-        formattedAddress: place.formattedAddress,
-        image_url: photo,
-        places_api_id: place.id,
-        rating: place.rating,
-        regularOpeningHours: place.regularOpeningHours,
-        reviews: place.reviews,
-        latlng: place.location,
-      },
-      { onConflict: "places_api_id" }
-    );
-    if (error) console.log(error);
-  };
-  updateRestaurant();
-  const getRestaurantId = async () => {
-    const { data, error } = await supabase
-      .from("restaurants")
-      .select("id")
-      // user.id is from the auth table
-      // user_id in user_saves table is equal to the uuid of the current logged in user.
-      .eq("places_api_id", place.id);
-
-    if (error) {
-      console.error("Error fetching saved restaurants:", error.message);
-      return;
+  updateRestaurant(place, photo);
+  const fetchRestaurantData = async () => {
+    try {
+      const id = await getRestaurantId(place.id); // Await the result
+      setId(id); // Set the state with the actual ID
+    } catch (err: any) {
+      console.error("Failed to fetch restaurant ID:", err);
     }
-    // console.log(data[0].id);
-    setId(data[0].id);
   };
-  getRestaurantId();
+
+  fetchRestaurantData();
   const updateSave = async () => {
     const {
       data: { user },
     } = await supabase.auth.getUser();
     //no user so i stop
     if (!user) return;
-
     const { error } = await supabase.from("user_saves").upsert(
       {
         user_id: user.id,
@@ -83,9 +62,15 @@ const AutocompleteResult = ({ place }: Props) => {
     );
     if (error) console.log(error);
   };
-
-  // console.log(place.location);
-
+  const onClick = () => {
+    if (!save) {
+      setSave(true);
+      updateSave();
+    } else {
+    }
+  };
+  // console.log(save);
+  console.log(place);
   // add a marker for the selected place
   return (
     <AdvancedMarker
@@ -119,7 +104,7 @@ const AutocompleteResult = ({ place }: Props) => {
                 style={{ width: "250px" }}
               ></img>
             )}
-            <button onClick={() => updateSave()}> save to profile</button>
+            <button onClick={onClick}> save to profile</button>
           </div>
         </InfoWindow>
       )}
