@@ -1,115 +1,85 @@
 import React, { useEffect, useState } from "react";
-import "./HomePage.css";
 import CafeCardLarge from "../../Components/CafeCardLargeforHome/CafeCardLarge";
-import ReviewCard from "../../Components/ReviewCard";
-import { Restaurant, UserCoordinates } from "../../types";
-import mcdonalds from "../../Assets/McDonalds.jpg";
-import { UserLocationContext } from "../../Context/UserLocationContext";
+import { RestaurantHome } from "../../Types/RestaurantHome";
+import { useNavigate } from "react-router";
+import supabase from "../../SupabaseAuthentication/SupabaseClient";
+import "./HomePage.css";
 
-const INITIAL_CAFES: Restaurant[] = [
-  {
-    id: 1,
-    name: "Sushi Place",
-    address: "123 Tokyo Street",
-    image_url: mcdonalds,
-    visited: false,
-    save_id: 1,
-    tags: ["sushi", "places"],
-  },
-  {
-    id: 2,
-    name: "Pasta Heaven",
-    address: "456 Rome Avenue",
-    image_url: mcdonalds,
-    visited: false,
-    save_id: 2,
-    tags: ["sushi", "places"],
-  },
-  {
-    id: 3,
-    name: "Burger World",
-    address: "789 New York Blvd",
-    image_url: mcdonalds,
-    visited: false,
-    save_id: 3,
-    tags: ["sushi", "places"],
-  },
-];
 
-const LandingPage: React.FC = () => {
-  const [cafeList, setCafeList] = useState<Restaurant[]>(INITIAL_CAFES);
+function HomePage() {
+
+  const [restaurants, setRestaurants] = useState<RestaurantHome[]>([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchUnvisitedRestaurants = async () => {
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
+
+      if (userError || !user) {
+        console.error("User fetch error", userError);
+        return;
+      }
+
+      // find the restaurant ids that is saved by the user
+      const { data: savedData, error: savedError } = await supabase
+        .from("user_saves")
+        .select("restaurant_id")
+        .eq("user_id", user.id);
+
+      if (savedError) {
+        console.error("Error fetching saved restaurant IDs", savedError);
+        return;
+      }
+
+      const savedRestaurantIds = savedData.map(entry => entry.restaurant_id);
+
+      // find the restaurants that is not saved by the user aka other people saves
+      const { data: allRestaurants, error: restaurantError } = await supabase
+        .from("restaurants")
+        .select("id, displayName, formattedAddress, image_url")
+        .not("id", "in", `(${savedRestaurantIds.join(",")})`);
+
+      if (restaurantError) {
+        console.error("Error fetching restaurants", restaurantError);
+        return;
+      }
+
+      setRestaurants(allRestaurants);
+    };
+
+    fetchUnvisitedRestaurants();
+  }, []);
+
 
   return (
     <div className="landing-container">
       <div className="landing-hero">
         <div className="landing-hero-title">Cafe Planner</div>
       </div>
-
       <div className="landing-cafes-section">
-        <h2 className="landing-section-title">Other cafes in your list!</h2>
+        <h2 className="landing-section-title">See what others have saved</h2>
         <div className="landing-cafes-container">
-          {cafeList.map((cafe, index) => {
-            return <CafeCardLarge key={index} cafe={cafe} />;
-          })}
+          {restaurants.map((restaurant) => (
+            <div className="landing-cafe"
+              key={restaurant.id}
+              onClick={() => navigate(`/Home/${restaurant.id}`)}
+            >
+              <CafeCardLarge
+                cafe={restaurant}
+                onRemove={(id) => {
+                  setRestaurants((prev) =>
+                    prev.filter((r) => r.id !== id)
+                  );
+                }}
+              />
+            </div>
+          ))}
         </div>
       </div>
-
-      <div className="landing-reviews-section">
-        <h2 className="landing-section-title">Recent Reviews</h2>
-        <div className="landing-reviews-container">
-          <ReviewCard
-            reviewText="A terrific piece of praise"
-            reviewerName="Name"
-            reviewerDescription="Description"
-          />
-          <ReviewCard
-            reviewText="A fantastic bit of feedback"
-            reviewerName="Name"
-            reviewerDescription="Description"
-          />
-          <ReviewCard
-            reviewText="A genuinely glowing review"
-            reviewerName="Name"
-            reviewerDescription="Description"
-          />
-        </div>
-      </div>
-
-      <footer className="landing-footer">
-        <div className="landing-footer-content">
-          <div className="landing-footer-logo">Site name</div>
-
-          <div className="landing-footer-social">
-            <i className="ti ti-brand-facebook"></i>
-            <i className="ti ti-brand-linkedin"></i>
-            <i className="ti ti-brand-youtube"></i>
-            <i className="ti ti-brand-instagram"></i>
-          </div>
-
-          <div className="landing-footer-links">
-            <div className="landing-footer-column">
-              <div className="landing-footer-topic">Topic</div>
-              <div className="landing-footer-page">Page</div>
-              <div className="landing-footer-page">Page</div>
-              <div className="landing-footer-page">Page</div>
-            </div>
-            <div className="landing-footer-column">
-              <div className="landing-footer-topic">Topic</div>
-              <div className="landing-footer-page">Page</div>
-              <div className="landing-footer-page">Page</div>
-              <div className="landing-footer-page">Page</div>
-            </div>
-            <div className="landing-footer-column">
-              <div className="landing-footer-topic">Topic</div>
-              <div className="landing-footer-page">Page</div>
-              <div className="landing-footer-page">Page</div>
-              <div className="landing-footer-page">Page</div>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
-};
 
-export default LandingPage;
+
+}
+
+export default HomePage;
