@@ -53,8 +53,9 @@ const Header: React.FC = () => (
     <div className="header-right">
       <Link to="/Home">Home</Link>
       <Link to="/Saved">Saved</Link>
-      <Link to="/Profile">Profile</Link>
       <Link to="/Search">Search</Link>
+      <Link to="/Forum">Forum</Link>
+      <Link to="/Profile">Profile</Link>
     </div>
   </div>
 );

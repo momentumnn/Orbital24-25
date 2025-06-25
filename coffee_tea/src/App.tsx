@@ -10,6 +10,9 @@ import SearchPage from "./Pages/SearchPage/SearchPage";
 import SavedPage from "./Pages/SavedPage/SavedPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import RestaurantDetailPage from './Pages/RestaurantDetailPage/RestaurantDetail';
+import ForumPage from "./Pages/ForumPage/ForumPage";
+import CreateThreadPage from "./Pages/ForumPage/CreateThreadPage/CreateThreadPage";
+import ThreadDetailPage from "./Pages/ForumPage/ThreadDetailPage/ThreadDetailPage";
 
 
 //protects the routes
@@ -45,6 +48,11 @@ function App() {
             </Wrapper>
           }
         />
+        <Route path="/Home/:id" element={
+          <Wrapper>
+            <RestaurantDetailPage />
+          </Wrapper>
+        } />
 
         <Route
           path="/Saved"
@@ -78,6 +86,25 @@ function App() {
             </Wrapper>
           }
         />
+                <Route path="/Forum" element={
+          <Wrapper>
+            <ForumPage />
+          </Wrapper>
+
+        } />
+
+        <Route path="/Forum/Create" element={
+          <Wrapper>
+            <CreateThreadPage />
+          </Wrapper>
+        } />
+
+
+        <Route path="/Forum/Thread/:id" element={
+          <Wrapper>
+            <ThreadDetailPage />
+          </Wrapper>
+        } />
       </Routes>
     </>
   );

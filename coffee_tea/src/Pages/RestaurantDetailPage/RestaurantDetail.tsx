@@ -1,22 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import supabase from "../../SupabaseAuthentication/SupabaseClient";
-
+import { Review } from "../../Types/Review";
+import { Restaurant } from "../../Types/Restaurant";
 import "./RestaurantDetail.css";
-
-interface Restaurant {
-  id: string;
-  displayName: string;
-  formattedAddress: string;
-  image_url: string;
-  latlng: { lng: string; lat: string;};
-}
-interface Review {
-  id: number;
-  username: string;
-  review: string;
-  created_at: string;
-}
 
 function RestaurantDetailPage() {
 
@@ -25,6 +12,8 @@ function RestaurantDetailPage() {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [newReview, setNewReview] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
+  const [userId, setUserId] = useState<string | null>(null);
 
   //get restarurant details
   useEffect(() => {
@@ -41,6 +30,24 @@ function RestaurantDetailPage() {
       } else {
         setRestaurant(data);
       }
+
+      //this part onwards we are checking if the restaurant is saved by the user anot
+      //so need the userdata
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
+      if (userError || !user) {
+        alert("You must be logged in")
+        return;
+      }
+      setUserId(user.id);
+      // check if the restaurant is saved
+      const { data: saveEntry, error: saveError } = await supabase
+        .from("user_saves")
+        .select("id")
+        .eq("user_id", user.id)
+        .eq("restaurant_id", id)
+        .maybeSingle();
+
+      if (!saveError && saveEntry) setIsSaved(true);
     };
 
     if (id) fetchRestaurant();
@@ -72,7 +79,7 @@ function RestaurantDetailPage() {
     setLoading(true);
 
     // need get the user id first from the auth table
-    const {data: { user }, error: userError} = await supabase.auth.getUser();
+    const { data: { user }, error: userError } = await supabase.auth.getUser();
     if (userError || !user) {
       alert("You must be logged in to submit a review.");
       setLoading(false);
@@ -115,27 +122,78 @@ function RestaurantDetailPage() {
     setLoading(false);
   };
 
+
+  //this is the toggle button for saving and unsaving the restaurant
+  const handleToggleSave = async () => {
+    if (!userId || !restaurant) return;
+
+    // unsave 
+    if (isSaved) {
+      const { error } = await supabase
+        .from("user_saves")
+        .delete()
+        .eq("user_id", userId)
+        .eq("restaurant_id", restaurant.id);
+
+      if (!error) setIsSaved(false);
+      else alert("Failed to unsave.");
+    }
+    //save
+    else {
+      const { error } = await supabase
+        .from("user_saves")
+        .insert([
+          {
+            user_id: userId,
+            restaurant_id: restaurant.id,
+          },
+        ]);
+
+      if (!error) setIsSaved(true);
+      else alert("Failed to save.");
+    }
+  };
+
   if (!restaurant) return <div className="loading">Loading...</div>;
 
   return (
     <div className="restaurant-detail-page">
       <div className="restaurant-detail-top">
         <div className="restaurant-detail-left">
-          <img
-            src={restaurant.image_url}
-            alt={restaurant.displayName}
-            className="restaurant-detail-image"
-          />
+          {restaurant.image_url ? (
+            <img
+              src={restaurant.image_url}
+              alt={restaurant.displayName}
+              className="restaurant-detail-image"
+            />
+          ) : (
+            <div className="restaurant-detail-placeholder">
+              Oops, this image is not provided to us.
+            </div>
+          )}
         </div>
         <div className="restaurant-detail-right">
           <h2 className="restaurant-detail-name">{restaurant.displayName}</h2>
-          <p className="restaurant-detail-address">{restaurant.formattedAddress}</p>
-          <iframe
-            title="Map"
-            className="restaurant-detail-map"
-            src={`https://www.google.com/maps?q=${restaurant.latlng.lat},${restaurant.latlng.lng}&z=15&output=embed`}
-            loading="lazy"
-          />
+          <p className="restaurant-detail-address">
+            {restaurant.formattedAddress || "Oops, this address is not provided to us."}
+          </p>
+
+          {restaurant.latlng?.lat && restaurant.latlng?.lng ? (
+            <iframe
+              title="Map"
+              className="restaurant-detail-map"
+              src={`https://www.google.com/maps?q=${restaurant.latlng.lat},${restaurant.latlng.lng}&z=15&output=embed`}
+              loading="lazy"
+            />
+          ) : (
+            <div className="restaurant-detail-placeholder">
+              Oops, no map data is available.
+            </div>
+          )}
+
+          <button onClick={handleToggleSave} className="save-button">
+            {isSaved ? "Unsave" : "Save"}
+          </button>
         </div>
       </div>
 
