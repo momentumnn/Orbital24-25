@@ -29,7 +29,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts build",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -58,6 +58,7 @@
     "@types/jest": "^30.0.0",
     "@types/node": "^22.15.30",
     "jest": "^30.0.3",
+    "jest-environment-jsdom": "^30.0.2",
     "ts-jest": "^29.4.0"
   }
 }

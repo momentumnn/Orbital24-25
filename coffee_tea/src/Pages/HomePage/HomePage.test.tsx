@@ -4,48 +4,45 @@ import HomePage from './HomePage';
 import { BrowserRouter } from 'react-router-dom';
 
 // Mock Supabase client
-jest.mock('../../SupabaseAuthentication/SupabaseClient', () => {
-  return {
-    __esModule: true,
-    default: {
-      auth: {
-        getUser: jest.fn().mockResolvedValue({
-          data: { user: { id: 'user-123' } },
-          error: null,
-        }),
-      },
-      from: jest.fn((table: string) => {
-        const mockData: Record<string, any> = {
-          user_saves: {
-            select: () => ({
-              eq: () => ({
-                data: [{ restaurant_id: '1' }],
-                error: null,
-              }),
-            }),
-          },
-          restaurants: {
-            select: () => ({
-              not: () => ({
-                data: [
-                  {
-                    id: '2',
-                    displayName: 'Mock Cafe',
-                    formattedAddress: '123 Java St.',
-                    image_url: 'mock.jpg',
-                  },
-                ],
-                error: null,
-              }),
-            }),
-          },
-        };
-
-        return mockData[table];
+jest.mock('../../SupabaseAuthentication/SupabaseClient', () => ({
+  __esModule: true,
+  default: {
+    auth: {
+      getUser: jest.fn().mockResolvedValue({
+        data: { user: { id: 'user-123' } },
+        error: null,
       }),
     },
-  };
-});
+    from: jest.fn((table: string) => {
+      const mockData: Record<string, any> = {
+        user_saves: {
+          select: () => ({
+            eq: () => ({
+              data: [{ restaurant_id: '1' }],
+              error: null,
+            }),
+          }),
+        },
+        restaurants: {
+          select: () => ({
+            not: () => ({
+              data: [
+                {
+                  id: '2',
+                  displayName: 'Mock Cafe',
+                  formattedAddress: '123 Java St.',
+                  image_url: 'mock.jpg',
+                },
+              ],
+              error: null,
+            }),
+          }),
+        },
+      };
+      return mockData[table];
+    }),
+  },
+}));
 
 describe('HomePage', () => {
   test('renders the homepage title and fetched restaurants', async () => {
