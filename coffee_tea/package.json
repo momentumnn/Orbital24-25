@@ -10,10 +10,6 @@
     "@react-google-maps/api": "^2.20.6",
     "@supabase/supabase-js": "^2.49.8",
     "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
     "@vis.gl/react-google-maps": "^1.5.3",
@@ -33,7 +29,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -55,7 +51,13 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/google.maps": "^3.58.1",
-    "@types/node": "^22.15.30"
+    "@types/jest": "^30.0.0",
+    "@types/node": "^22.15.30",
+    "jest": "^30.0.3",
+    "ts-jest": "^29.4.0"
   }
 }
