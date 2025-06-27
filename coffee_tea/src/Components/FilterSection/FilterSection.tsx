@@ -15,7 +15,7 @@ const FilterSection: React.FC = () => {
           <input
             type="range"
             min={0}
-            max={100}
+            max={1000}
             step={10}
             onChange={(e) => setRadius(e.target.valueAsNumber)}
             defaultValue={radius}
