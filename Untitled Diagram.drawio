@@ -1,0 +1,228 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:139.0) Gecko/20100101 Firefox/139.0" version="27.0.4" pages="2">
+  <diagram name="Page-1" id="Ls0BdlMpMCMNYWokAvvK">
+    <mxGraphModel dx="1447" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="9DeB4skfv6cbwcej1cd4-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9DeB4skfv6cbwcej1cd4-25" target="9DeB4skfv6cbwcej1cd4-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9DeB4skfv6cbwcej1cd4-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9DeB4skfv6cbwcej1cd4-25" target="9DeB4skfv6cbwcej1cd4-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9DeB4skfv6cbwcej1cd4-25" value="Have an account?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="665" y="230" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9DeB4skfv6cbwcej1cd4-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="9DeB4skfv6cbwcej1cd4-26" target="9DeB4skfv6cbwcej1cd4-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9DeB4skfv6cbwcej1cd4-26" value="Start" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="645" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9DeB4skfv6cbwcej1cd4-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="9DeB4skfv6cbwcej1cd4-29" target="9DeB4skfv6cbwcej1cd4-31">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="865" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9DeB4skfv6cbwcej1cd4-29" value="Register" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="805" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9DeB4skfv6cbwcej1cd4-37" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9DeB4skfv6cbwcej1cd4-31" target="9DeB4skfv6cbwcej1cd4-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9DeB4skfv6cbwcej1cd4-40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="9DeB4skfv6cbwcej1cd4-31" target="9DeB4skfv6cbwcej1cd4-39">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="705" y="490" />
+              <mxPoint x="500" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9DeB4skfv6cbwcej1cd4-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="9DeB4skfv6cbwcej1cd4-31" target="9DeB4skfv6cbwcej1cd4-42">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="910" y="540" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="705" y="490" />
+              <mxPoint x="910" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9DeB4skfv6cbwcej1cd4-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="9DeB4skfv6cbwcej1cd4-31" target="9DeB4skfv6cbwcej1cd4-44">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1100" y="550" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="705" y="490" />
+              <mxPoint x="1120" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9DeB4skfv6cbwcej1cd4-31" value="Login" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="645" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9DeB4skfv6cbwcej1cd4-36" value="Saved" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="645" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9DeB4skfv6cbwcej1cd4-39" value="Home" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9DeB4skfv6cbwcej1cd4-42" value="Restaurants" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9DeB4skfv6cbwcej1cd4-44" value="Forum" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9DeB4skfv6cbwcej1cd4-46" value="No" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="751" y="230" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9DeB4skfv6cbwcej1cd4-47" value="Yes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="705" y="330" width="40" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="XoDkdQthBcqbjtmv9tH0" name="Page-2">
+    <mxGraphModel dx="1964" dy="1137" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=0;" edge="1" parent="1" source="YVx4ocqWtAHXRGaXlnX6-1" target="OZwK9_-LOK2CuUaRMMyn-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="YVx4ocqWtAHXRGaXlnX6-1" target="OZwK9_-LOK2CuUaRMMyn-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YVx4ocqWtAHXRGaXlnX6-1" value="&lt;div&gt;Supabase Postgre SQL Authentication&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="655" y="240" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="OZwK9_-LOK2CuUaRMMyn-7" target="OZwK9_-LOK2CuUaRMMyn-12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="865" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-7" value="Register" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="805" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="OZwK9_-LOK2CuUaRMMyn-12" target="OZwK9_-LOK2CuUaRMMyn-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="OZwK9_-LOK2CuUaRMMyn-12" target="OZwK9_-LOK2CuUaRMMyn-14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="705" y="490" />
+              <mxPoint x="500" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="OZwK9_-LOK2CuUaRMMyn-12" target="OZwK9_-LOK2CuUaRMMyn-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="910" y="540" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="705" y="490" />
+              <mxPoint x="910" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="OZwK9_-LOK2CuUaRMMyn-12" target="OZwK9_-LOK2CuUaRMMyn-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1100" y="550" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="705" y="490" />
+              <mxPoint x="1120" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-12" value="Login" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="645" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-13" value="Saved" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="645" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-14" value="Home" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-15" value="Search" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-16" value="Forum" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="OZwK9_-LOK2CuUaRMMyn-28" target="OZwK9_-LOK2CuUaRMMyn-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="OZwK9_-LOK2CuUaRMMyn-29" target="OZwK9_-LOK2CuUaRMMyn-13">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="610" y="570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="OZwK9_-LOK2CuUaRMMyn-21" target="OZwK9_-LOK2CuUaRMMyn-15">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800" y="750" />
+              <mxPoint x="800" y="570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="OZwK9_-LOK2CuUaRMMyn-21" target="OZwK9_-LOK2CuUaRMMyn-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1000" y="750" />
+              <mxPoint x="1000" y="570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-21" value="&lt;div&gt;Supabase&amp;nbsp;&lt;/div&gt;&lt;div&gt;Postgre SQL&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="320" y="720" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="OZwK9_-LOK2CuUaRMMyn-21" target="OZwK9_-LOK2CuUaRMMyn-28">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="720" as="sourcePoint" />
+            <mxPoint x="440" y="570" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-28" value="Get unvisited restaurants from restaurant list" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="320" y="610" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="OZwK9_-LOK2CuUaRMMyn-21" target="OZwK9_-LOK2CuUaRMMyn-29">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="750" as="sourcePoint" />
+            <mxPoint x="645" y="570" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="610" y="750" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-29" value="Get saved restaurants from restaurant list" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="550" y="610" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-31" value="&lt;div&gt;Update user_saves when user saves a restaurant&lt;/div&gt;&lt;div&gt;Pull data from Google API to local database&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="740" y="610" width="120" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-32" value="Get forum based on forums table" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="950" y="610" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="OZwK9_-LOK2CuUaRMMyn-35" target="OZwK9_-LOK2CuUaRMMyn-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-33" value="Google map API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+          <mxGeometry x="850" y="940" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="OZwK9_-LOK2CuUaRMMyn-33" target="OZwK9_-LOK2CuUaRMMyn-35">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="910" y="850" as="sourcePoint" />
+            <mxPoint x="910" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OZwK9_-LOK2CuUaRMMyn-35" value="&lt;div&gt;Create a Map component&lt;/div&gt;&lt;div&gt;Get autocomplete results based on search&lt;/div&gt;&lt;div&gt;Get places details in JSON format&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+          <mxGeometry x="830" y="760" width="160" height="130" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
