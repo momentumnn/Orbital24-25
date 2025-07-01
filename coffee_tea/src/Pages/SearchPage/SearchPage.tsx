@@ -9,32 +9,13 @@ import { UserLocationContext } from "../../Context/UserLocationContext";
 
 const INITIAL_CAFES: Restaurant[] = [
   {
-    id: 1,
-    name: "Sushi Place",
-    address: "123 Tokyo Street",
-    image_url: mcdonalds,
-    visited: false,
-    save_id: 1,
-    tags: ["sushi", "places"],
+    id: "string",
+  displayName: "string",
+  formattedAddress: "string",
+  image_url: "string",
+  latlng: { lng: "string", lat: "string"}
   },
-  {
-    id: 2,
-    name: "Pasta Heaven",
-    address: "456 Rome Avenue",
-    image_url: mcdonalds,
-    visited: false,
-    save_id: 2,
-    tags: ["sushi", "places"],
-  },
-  {
-    id: 3,
-    name: "Burger World",
-    address: "789 New York Blvd",
-    image_url: mcdonalds,
-    visited: false,
-    save_id: 3,
-    tags: ["sushi", "places"],
-  },
+  
 ];
 const options = {
   enableHighAccuracy: false,
