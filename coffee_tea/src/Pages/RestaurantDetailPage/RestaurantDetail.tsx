@@ -190,10 +190,27 @@ function RestaurantDetailPage() {
               Oops, no map data is available.
             </div>
           )}
-
           <button onClick={handleToggleSave} className="save-button">
             {isSaved ? "Unsave" : "Save"}
           </button>
+
+          {restaurant.rating !== undefined ? (
+            <p className="restaurant-rating">⭐ {restaurant.rating} stars from Google</p>
+          ) : (
+            <p>Sorry, there is no google rating for this restaurant.</p>
+          )}
+          {restaurant.regularOpeningHours?.weekdayDescriptions?.length ? (
+            <div className="restaurant-hours">
+              <h4>Opening Hours</h4>
+              <ul>
+                {restaurant.regularOpeningHours.weekdayDescriptions.map((x) => (
+                  <li>{x}</li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <p>Sorry, opening hours were not provided.</p>
+          )}
         </div>
       </div>
 
