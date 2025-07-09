@@ -27,7 +27,6 @@ function SearchPage() {
   const position = { lat: 1.3521, lng: 103.8198 };
 
   const [cafeList, setCafeList] = useState<Restaurant[]>(INITIAL_CAFES);
-  const [displayname, setDisplayname] = useState<string>("");
   const [userLocation, setUserLocation] = useState<UserCoordinates>(position);
   const getUserLocation = () => {
     navigator.geolocation.getCurrentPosition(
@@ -54,7 +53,6 @@ function SearchPage() {
         <MapSection />
         <div className="search-content">
           <div className="section-title">List of your saved cafes!</div>
-          {displayname}
           <FilterSection />
 
           <div className="cafe-list">
