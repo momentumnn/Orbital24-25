@@ -14,6 +14,7 @@ import {
 import AutocompleteControl from "./autocomplete-control";
 import AutocompleteResult from "./autocomplete-result";
 import { UserLocationContext } from "../../Context/UserLocationContext";
+import CafeCardList from "../../Components/CafeCardforMap/CafeCardList";
 
 type LatLngLiteral = { LatLng: google.maps.LatLngLiteral };
 
