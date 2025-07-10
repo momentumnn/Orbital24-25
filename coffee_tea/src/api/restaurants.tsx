@@ -33,6 +33,7 @@ export const updateRestaurant = async (
       regularOpeningHours: place.regularOpeningHours,
       reviews: place.reviews,
       latlng: place.location,
+      types: place.types,
     },
     { onConflict: "places_api_id" }
   );
