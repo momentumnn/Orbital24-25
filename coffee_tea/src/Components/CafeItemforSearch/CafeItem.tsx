@@ -10,8 +10,8 @@ function CafeItem({ cafe }: CafeProps) {
   return (
     <div className="cafe-item">
       <div className="cafe-item-info">
-        <div className="cafe-item-name">{cafe.name}</div>
-        <div className="cafe-item-address">Address: {cafe.address}</div>
+        <div className="cafe-item-name">{cafe.displayName}</div>
+        <div className="cafe-item-address">Address: {cafe.formattedAddress}</div>
         <div className="cafe-item-details">
           <div className="cafe-item-hours">
             <div className="cafe-item-hours-title">Opening hours</div>
