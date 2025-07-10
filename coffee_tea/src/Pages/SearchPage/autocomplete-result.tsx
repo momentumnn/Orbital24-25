@@ -33,8 +33,10 @@ const AutocompleteResult = ({ place }: Props) => {
     }
     setSave(false);
   }, [map, place]);
+
   if (!place) return null;
   updateRestaurant(place, photo);
+  console.log(place);
   const fetchRestaurantData = async () => {
     try {
       const id = await getRestaurantId(place.id); // Await the result
