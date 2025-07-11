@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CafeCardLarge from "../../Components/CafeCardLargeforHome/CafeCardLarge";
-import { RestaurantHome } from "../../Types/RestaurantHome";
+import { RestaurantHome } from "../../types";
 import { useNavigate } from "react-router";
 import supabase from "../../SupabaseAuthentication/SupabaseClient";
 import "./HomePage.css";
@@ -54,10 +54,10 @@ function HomePage() {
   return (
     <div className="landing-container">
       <div className="landing-hero">
-        <div className="landing-hero-title">Cafe Planner</div>
+        <div className="landing-hero-title">Cafe Finder</div>
       </div>
       <div className="landing-cafes-section">
-        <h2 className="landing-section-title">See what others have saved</h2>
+        <h2 className="landing-section-title">See what else to save</h2>
         <div className="landing-cafes-container">
           {restaurants.map((restaurant) => (
             <div className="landing-cafe"

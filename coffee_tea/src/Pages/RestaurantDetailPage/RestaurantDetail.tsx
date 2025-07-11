@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import supabase from "../../SupabaseAuthentication/SupabaseClient";
 import { Review } from "../../Types/Review";
-import { Restaurant } from "../../Types/Restaurant";
+import { Restaurant } from "../../types";
 import "./RestaurantDetail.css";
 
 function RestaurantDetailPage() {

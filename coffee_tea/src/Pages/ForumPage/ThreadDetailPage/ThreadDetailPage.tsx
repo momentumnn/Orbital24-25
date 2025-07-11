@@ -2,9 +2,8 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import supabase from '../../../SupabaseAuthentication/SupabaseClient';
 import './ThreadDetailPage.css';
-import { Comment } from '../../../Types/Comment';
-import { Thread } from '../../../Types/Thread';
-
+import { Comment } from "../../../types";
+import { Thread } from "../../../types";
 function ThreadDetailPage() {
 
 

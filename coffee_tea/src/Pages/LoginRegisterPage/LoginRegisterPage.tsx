@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginRegisterPage.css"
 import thumbnail from "../../Assets/LoginRegisterPageThumbnail.avif"
-import ReviewCard from "../../Components/ReviewCard";
+
 
 
 function LoginRegisterPage() {

@@ -16,7 +16,11 @@ export interface Restaurant {
   displayName: string;
   formattedAddress: string;
   image_url: string;
-  latlng: { lng: string; lat: string;};
+  latlng: { lng: string; lat: string; };
+  rating?: number;
+  regularOpeningHours?: {
+    weekdayDescriptions?: string[];
+  };
 }
 
 export interface RestaurantHome {
@@ -40,6 +44,7 @@ export interface RestaurantSaved {
   image_url: string;
   visited: boolean;
   save_id: number;
+  types: string[];
 }
 
 export interface Thread {

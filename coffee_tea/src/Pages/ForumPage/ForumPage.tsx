@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import supabase from '../../SupabaseAuthentication/SupabaseClient';
 import './ForumPage.css';
-import { Thread } from '../../Types/Thread';
+import { Thread } from "../../types";
 
 
 function ForumPage() {
