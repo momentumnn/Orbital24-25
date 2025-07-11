@@ -36,34 +36,19 @@
 }
 
 .landing-cafes-container {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 32px;
-  overflow-x: auto;
-  overflow-y: hidden;
   padding: 16px 0;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
 }
 
 .landing-cafes-container > div {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
+  width: 100%; 
 }
 
-/* Optional scrollbar styling for nicer appearance */
-.landing-cafes-container::-webkit-scrollbar {
-  height: 8px;
-}
-
-.landing-cafes-container::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 4px;
-}
-.landing-cafe{
+.landing-cafe {
   cursor: pointer;
 }
-
 
 /* Responsive Styles */
 @media (max-width: 991px) {
