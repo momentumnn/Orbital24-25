@@ -3,10 +3,12 @@ import "./FilterSection.css";
 import { Filter } from "../../types";
 import { UserLocationContext } from "../../Context/UserLocationContext";
 import FilterInputSlider from "./FilterInputSlider";
+import CafeItem from "../CafeItemforSearch/CafeItem";
 
 function FilterSection() {
   const [radius, setRadius] = useState(10);
   const [price, setPrice] = useState(10);
+  const [places, setPlaces] = useState<google.maps.places.Place[]>([]);
   const userLocation: google.maps.LatLngLiteral =
     useContext(UserLocationContext);
   const req: Filter = {
@@ -18,9 +20,18 @@ function FilterSection() {
     },
   };
   useEffect(() => {
-    findPlaces(req);
-  }, [req]);
+    const fetchPlaces = async () => {
+      try {
+        const places = await findPlaces(req);
+        setPlaces(places);
+        // ... handle results
+      } catch (error) {
+        console.error("Failed to fetch places:", error);
+      }
+    };
 
+    fetchPlaces();
+  }, [radius]);
   return (
     <div className="filter-section">
       <div className="filter-container">
@@ -40,7 +51,7 @@ function FilterSection() {
           max={100}
           step={10}
         />
-        <div className="filter-group">
+        {/* <div className="filter-group">
           <div className="filter-label">Category</div>
           <div className="filter-value">Choose a category</div>
           <input
@@ -52,12 +63,12 @@ function FilterSection() {
             defaultValue={price}
           />
           <div className="filter-description">${price}</div>
-          {/* <div className="cafe-list">
-              {cafeList.map((cafe, index) => {
-                return <CafeItem key={index} cafe={cafe} />;
-              })}
-            </div> */}
-        </div>
+        </div> */}
+      </div>
+      <div className="cafe-list">
+        {places.map((place, index) => {
+          return <CafeItem key={index} place={place} />;
+        })}
       </div>
     </div>
   );
@@ -119,7 +130,20 @@ async function findPlaces(req: Filter) {
   ];
   const request = {
     locationRestriction: circ,
-    fields: ["displayName", "location", "businessStatus"],
+    fields: [
+      "displayName",
+      "location",
+      "businessStatus",
+      "photos",
+      "rating",
+      "formattedAddress",
+      "googleMapsURI",
+      "nationalPhoneNumber",
+      "regularOpeningHours",
+      "priceLevel",
+      "websiteURI",
+      "editorialSummary",
+    ],
     includedTypes: restaurantTypes,
     language: "en-US",
     maxResultCount: 8,
@@ -131,23 +155,8 @@ async function findPlaces(req: Filter) {
 
   if (places.length) {
     console.log(places);
-
-    const { LatLngBounds } = (await google.maps.importLibrary(
-      "core"
-    )) as google.maps.CoreLibrary;
-    const bounds = new LatLngBounds();
-
-    // Loop through and get all the results.
-    places.forEach((place) => {
-      const markerView = new AdvancedMarkerElement({
-        position: place.location,
-        title: place.displayName,
-      });
-
-      bounds.extend(place.location as google.maps.LatLng);
-      console.log(place);
-    });
   } else {
     console.log("No results");
   }
+  return places;
 }
