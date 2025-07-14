@@ -1,12 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import supabase from "../../SupabaseAuthentication/SupabaseClient";
-import { Review } from "../../Types/Review";
-import { Restaurant } from "../../types";
+import { Restaurant, Review } from "../../types";
 import "./RestaurantDetail.css";
 
 function RestaurantDetailPage() {
-
   const { id } = useParams<{ id: string }>();
   const [restaurant, setRestaurant] = useState<Restaurant | null>(null);
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -33,9 +31,12 @@ function RestaurantDetailPage() {
 
       //this part onwards we are checking if the restaurant is saved by the user anot
       //so need the userdata
-      const { data: { user }, error: userError } = await supabase.auth.getUser();
+      const {
+        data: { user },
+        error: userError,
+      } = await supabase.auth.getUser();
       if (userError || !user) {
-        alert("You must be logged in")
+        alert("You must be logged in");
         return;
       }
       setUserId(user.id);
@@ -71,7 +72,6 @@ function RestaurantDetailPage() {
     if (id) fetchReviews();
   }, [id]);
 
-
   // submitting reviews to db
   const handleReviewSubmit = async () => {
     if (!newReview.trim()) return;
@@ -79,7 +79,10 @@ function RestaurantDetailPage() {
     setLoading(true);
 
     // need get the user id first from the auth table
-    const { data: { user }, error: userError } = await supabase.auth.getUser();
+    const {
+      data: { user },
+      error: userError,
+    } = await supabase.auth.getUser();
     if (userError || !user) {
       alert("You must be logged in to submit a review.");
       setLoading(false);
@@ -97,7 +100,6 @@ function RestaurantDetailPage() {
       setLoading(false);
       return;
     }
-
 
     //inserting into databsae
     const { data, error } = await supabase
@@ -122,12 +124,11 @@ function RestaurantDetailPage() {
     setLoading(false);
   };
 
-
   //this is the toggle button for saving and unsaving the restaurant
   const handleToggleSave = async () => {
     if (!userId || !restaurant) return;
 
-    // unsave 
+    // unsave
     if (isSaved) {
       const { error } = await supabase
         .from("user_saves")
@@ -140,14 +141,12 @@ function RestaurantDetailPage() {
     }
     //save
     else {
-      const { error } = await supabase
-        .from("user_saves")
-        .insert([
-          {
-            user_id: userId,
-            restaurant_id: restaurant.id,
-          },
-        ]);
+      const { error } = await supabase.from("user_saves").insert([
+        {
+          user_id: userId,
+          restaurant_id: restaurant.id,
+        },
+      ]);
 
       if (!error) setIsSaved(true);
       else alert("Failed to save.");
@@ -175,7 +174,8 @@ function RestaurantDetailPage() {
         <div className="restaurant-detail-right">
           <h2 className="restaurant-detail-name">{restaurant.displayName}</h2>
           <p className="restaurant-detail-address">
-            {restaurant.formattedAddress || "Oops, this address is not provided to us."}
+            {restaurant.formattedAddress ||
+              "Oops, this address is not provided to us."}
           </p>
 
           {restaurant.latlng?.lat && restaurant.latlng?.lng ? (
@@ -195,7 +195,9 @@ function RestaurantDetailPage() {
           </button>
 
           {restaurant.rating !== undefined ? (
-            <p className="restaurant-rating">⭐ {restaurant.rating} stars from Google</p>
+            <p className="restaurant-rating">
+              ⭐ {restaurant.rating} stars from Google
+            </p>
           ) : (
             <p>Sorry, there is no google rating for this restaurant.</p>
           )}
@@ -236,16 +238,16 @@ function RestaurantDetailPage() {
                 <strong>{review.username}</strong>{" "}
                 <span style={{ color: "#666", fontSize: "0.9rem" }}>
                   ({new Date(review.created_at).toLocaleDateString()})
-                </span><br />
+                </span>
+                <br />
                 <em>"{review.review}"</em>
               </p>
             </li>
           ))}
         </ul>
-
       </div>
     </div>
   );
-};
+}
 
 export default RestaurantDetailPage;

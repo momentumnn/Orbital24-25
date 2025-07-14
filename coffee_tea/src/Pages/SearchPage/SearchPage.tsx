@@ -10,12 +10,11 @@ import { UserLocationContext } from "../../Context/UserLocationContext";
 const INITIAL_CAFES: Restaurant[] = [
   {
     id: "string",
-  displayName: "string",
-  formattedAddress: "string",
-  image_url: "string",
-  latlng: { lng: "string", lat: "string"}
+    displayName: "string",
+    formattedAddress: "string",
+    image_url: "string",
+    latlng: { lng: "string", lat: "string" },
   },
-  
 ];
 const options = {
   enableHighAccuracy: false,
@@ -43,7 +42,6 @@ function SearchPage() {
       options
     );
   };
-
   useEffect(() => {
     getUserLocation();
   }, []);
@@ -52,16 +50,8 @@ function SearchPage() {
       <div className="search-container">
         <MapSection />
         <div className="search-content">
-          <div className="section-title">List of your saved cafes!</div>
+          <div className="section-title">List of food near you!</div>
           <FilterSection />
-
-          <div className="cafe-list">
-            {cafeList.map((cafe, index) => {
-              return <CafeItem key={index} cafe={cafe} />;
-            })}
-          </div>
-
-          <button className="load-more-button">Load more cafes</button>
         </div>
       </div>
     </UserLocationContext.Provider>
