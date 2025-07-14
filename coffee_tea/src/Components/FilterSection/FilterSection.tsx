@@ -143,6 +143,7 @@ async function findPlaces(req: Filter) {
       "priceLevel",
       "websiteURI",
       "editorialSummary",
+      "types",
     ],
     includedTypes: restaurantTypes,
     language: "en-US",

@@ -30,9 +30,9 @@ function CafeItem({ place }: CafeProps) {
             })}
           </div>
           <div className="cafe-item-tags">
-            <div className="cafe-tag">Cafe</div>
-            <div className="cafe-tag">Cafe</div>
-            <div className="cafe-tag">Cafe</div>
+            {place.types?.map((tag) => {
+              return <div className="cafe-tag">{tag}</div>;
+            })}
           </div>
         </div>
         {place.googleMapsURI && (
