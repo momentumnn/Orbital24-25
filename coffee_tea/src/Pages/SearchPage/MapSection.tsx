@@ -21,12 +21,11 @@ type LatLngLiteral = { LatLng: google.maps.LatLngLiteral };
 const INITIAL_CAFES: Restaurant[] = [
   {
     id: "string",
-  displayName: "string",
-  formattedAddress: "string",
-  image_url: "string",
-  latlng: { lng: "string", lat: "string"}
+    displayName: "string",
+    formattedAddress: "string",
+    image_url: "string",
+    latlng: { lng: "string", lat: "string" },
   },
-  
 ];
 
 const mapsAPI: string = process.env.REACT_APP_GOOGLE_MAPS_API_KEY as string;
