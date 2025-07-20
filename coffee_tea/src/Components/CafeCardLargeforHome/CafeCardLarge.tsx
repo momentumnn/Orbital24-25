@@ -1,5 +1,5 @@
 import React from "react";
-import { RestaurantHome } from "../../Types/RestaurantHome";
+import { RestaurantHome } from "../../types";
 import "./CafeCardLarge.css";
 import { useState } from "react";
 import supabase from "../../SupabaseAuthentication/SupabaseClient";

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import supabase from "../../SupabaseAuthentication/SupabaseClient";
-import { Review } from "../../Types/Review";
+import { Review } from "../../types";
 import { Restaurant } from "../../types";
 import "./RestaurantDetail.css";
 
