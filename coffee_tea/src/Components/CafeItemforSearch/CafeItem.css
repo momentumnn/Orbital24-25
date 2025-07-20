@@ -42,10 +42,17 @@
   font-weight: 700;
   color: #000;
 }
+.cafe-item-hours-time {
+  margin: 3px;
+  /* font-size: 16px;
+  font-weight: 700;
+  color: #000; */
+}
 
 .cafe-item-tags {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .cafe-item-link {

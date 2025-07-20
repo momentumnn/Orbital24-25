@@ -57,6 +57,7 @@
 .filter-description {
   font-size: 16px;
   color: #757575;
+  padding: 3px;
 }
 
 .filter-tags {

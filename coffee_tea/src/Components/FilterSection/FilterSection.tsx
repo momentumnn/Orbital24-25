@@ -8,7 +8,10 @@ import CafeItem from "../CafeItemforSearch/CafeItem";
 function FilterSection() {
   const [radius, setRadius] = useState(10);
   const [price, setPrice] = useState(10);
+  const [priceCategory, setPriceCategory] = useState("Inexpensive");
+  
   const [places, setPlaces] = useState<google.maps.places.Place[]>([]);
+  
   const userLocation: google.maps.LatLngLiteral =
     useContext(UserLocationContext);
   const req: Filter = {
@@ -18,8 +21,22 @@ function FilterSection() {
       lat: userLocation.lat,
       lng: userLocation.lng,
     },
+    price: price
   };
   useEffect(() => {
+    switch ( price ) {
+    
+    case 0:
+      setPriceCategory("INEXPENSIVE");       
+      break;
+    case 10:
+      setPriceCategory("MODERATE");       
+      break;
+    case 20:
+      setPriceCategory("EXPENSIVE");       
+      break;
+    
+  }
     const fetchPlaces = async () => {
       try {
         const places = await findPlaces(req);
@@ -27,11 +44,11 @@ function FilterSection() {
         // ... handle results
       } catch (error) {
         console.error("Failed to fetch places:", error);
-      }
+      }                                                                                                                                   
     };
 
     fetchPlaces();
-  }, [radius]);
+  }, [radius,price]);
   return (
     <div className="filter-section">
       <div className="filter-container">
@@ -42,14 +59,16 @@ function FilterSection() {
           output="km away from you"
           max={10}
           step={0.1}
+          show={true}
         />
         <FilterInputSlider
           onValueChange={setPrice}
           label="Price"
-          value="$0-$100"
+          value="$-$$$"
           output=""
-          max={100}
+          max={20}
           step={10}
+          show={false}
         />
         {/* <div className="filter-group">
           <div className="filter-label">Category</div>
@@ -66,7 +85,8 @@ function FilterSection() {
         </div> */}
       </div>
       <div className="cafe-list">
-        {places.map((place, index) => {
+        {places.filter((place)=>place.priceLevel==priceCategory)
+          .map((place, index) => {
           return <CafeItem key={index} place={place} />;
         })}
       </div>
@@ -144,10 +164,11 @@ async function findPlaces(req: Filter) {
       "websiteURI",
       "editorialSummary",
       "types",
+      "priceRange"
     ],
     includedTypes: restaurantTypes,
     language: "en-US",
-    maxResultCount: 8,
+    maxResultCount: 20,
     region: "sg",
     rankPreference: SearchNearbyRankPreference.POPULARITY,
   };

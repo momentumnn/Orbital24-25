@@ -8,11 +8,25 @@ interface FilterInputSliderProps {
   output: string;
   max: number;
   step: number;
-
+  show: boolean;
 }
 
+interface DescriptionProps{
+  value: number;
+  output: string;
+  isShown: boolean;
+}
+
+function Description({ value, output, isShown }:DescriptionProps) {
+  if (!isShown) {
+    return null;
+  }
+  return <div className="filter-description">
+              {value}{output}
+          </div>;
+}
 // Destructure onRadiusChange from the props object
-function FilterInputSlider({ onValueChange, label, value, output, max, step }: FilterInputSliderProps) {
+function FilterInputSlider({ onValueChange, label, value, output, max, step, show}: FilterInputSliderProps) {
   const [radius, setRadius] = useState(10);
   return (
         <div className="filter-group">
@@ -26,9 +40,10 @@ function FilterInputSlider({ onValueChange, label, value, output, max, step }: F
             onChange={(e) => {setRadius(e.target.valueAsNumber);onValueChange(e.target.valueAsNumber)}}
             defaultValue={10}
           />
-          <div className="filter-description">
-              {radius}{output}
-            </div>
+          <Description 
+        value={radius} output={output} isShown={show}          
+        />
+          
         </div>
   )
       

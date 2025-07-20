@@ -62,6 +62,7 @@ export interface Filter {
   distance: number;
   category: string;
   latlng: UserCoordinates; 
+  price: number;
 }
 
 export interface FilterInput {

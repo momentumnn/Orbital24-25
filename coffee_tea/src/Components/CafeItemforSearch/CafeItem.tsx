@@ -26,13 +26,16 @@ function CafeItem({ place }: CafeProps) {
           <div className="cafe-item-hours">
             <div className="cafe-item-hours-title">Opening hours</div>
             {place.regularOpeningHours?.weekdayDescriptions.map((date) => {
-              return <ul>{date}</ul>;
+              return <ul className="cafe-item-hours-time">{date}</ul>;
             })}
           </div>
           <div className="cafe-item-tags">
             {place.types?.map((tag) => {
               return <div className="cafe-tag">{tag}</div>;
             })}
+          </div>
+          <div>
+            place is {place.priceLevel} priced
           </div>
         </div>
         {place.googleMapsURI && (
