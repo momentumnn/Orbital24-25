@@ -4,9 +4,6 @@ import supabase from "../../SupabaseAuthentication/SupabaseClient";
 import './ProfilePage.css'
 
 function ProfilePage() {
-
-
-  
   const [profilePic, setProfilePic] = useState<string>('');
   const [uploadMessage, setUploadMessage] = useState<string | null>(null);
   const [username, setUsername] = useState("");

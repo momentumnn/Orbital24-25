@@ -84,7 +84,7 @@ function RestaurantDetailPage() {
       error: userError,
     } = await supabase.auth.getUser();
     if (userError || !user) {
-      alert("You must be logged in to submit a review.");
+      alert("You are not an authenticated user. Please authenticate or use an authenticated account");;
       setLoading(false);
       return;
     }
@@ -126,8 +126,12 @@ function RestaurantDetailPage() {
 
   //this is the toggle button for saving and unsaving the restaurant
   const handleToggleSave = async () => {
-    if (!userId || !restaurant) return;
-
+    if (!userId || !restaurant) 
+    {
+      alert("You are not an authenticated user. Please authenticate or use an authenticated account");
+     return;
+    }
+    
     // unsave
     if (isSaved) {
       const { error } = await supabase
@@ -240,7 +244,7 @@ function RestaurantDetailPage() {
                   ({new Date(review.created_at).toLocaleDateString()})
                 </span>
                 <br />
-                <em>"{review.review}"</em>
+                <em>{review.review}</em>
               </p>
             </li>
           ))}

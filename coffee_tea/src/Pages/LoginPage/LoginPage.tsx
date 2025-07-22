@@ -37,12 +37,12 @@ function LoginPage() {
     //data.user contains the auth.user data like uuid and email
     const user = data.user;
 
-    //this will find the matching user.id with the user_id and check that only 1 row exist or none
-    const { data: profileData, error: profileGetError } = await supabase
+    //this will find the matching user.id with the user_id and check that only 1 row exist 
+    const { error: profileGetError } = await supabase
       .from("Public_Profile")
       .select("user_id")
       .eq("user_id", user.id)
-      .single(); // expects only 1 row or none
+      .single(); // expects only 1 row 
 
     // PGRST116 is postgres code for no row 
     if (profileGetError && profileGetError.code === "PGRST116") {

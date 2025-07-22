@@ -14,7 +14,8 @@ const MaybeShowNavBar = ({ children }: { children: React.ReactNode }) => {
     if (location.pathname === '/Login'
       || location.pathname === '/login'
       || location.pathname === '/Register'
-      || location.pathname === '/register') {
+      || location.pathname === '/register'
+      || location.pathname === '/') {
       setShowNavBar(false);
     } else {
       setShowNavBar(true);

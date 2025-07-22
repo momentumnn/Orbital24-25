@@ -86,7 +86,7 @@ function App() {
             </Wrapper>
           }
         />
-                <Route path="/Forum" element={
+        <Route path="/Forum" element={
           <Wrapper>
             <ForumPage />
           </Wrapper>

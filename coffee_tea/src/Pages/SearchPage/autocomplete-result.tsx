@@ -47,30 +47,53 @@ const AutocompleteResult = ({ place }: Props) => {
   };
 
   fetchRestaurantData();
-  const updateSave = async () => {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    //no user so i stop
-    if (!user) return;
-    const { error } = await supabase.from("user_saves").upsert(
-      {
-        user_id: user.id,
-        visited: false,
-        places_api_id: place.id,
-        restaurant_id: id,
-      },
-      { ignoreDuplicates: false }
-    );
-    if (error) console.log(error);
-  };
-  const onClick = () => {
-    if (!save) {
-      setSave(true);
-      updateSave();
-    } else {
-    }
-  };
+ 
+
+  const onClick = async () => {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user || !id) 
+  {
+    alert("You are not an authenticated user. Please authenticate or use an authenticated account");
+    return;
+  }
+  
+    
+  //need to check that it is saved already or not first
+  const { data: existingSave, error: checkError } = await supabase
+    .from("user_saves")
+    .select("id")
+    .eq("user_id", user.id)
+    .eq("restaurant_id", id)
+    .maybeSingle();
+
+  if (checkError) {
+    console.error("Error checking existing save:", checkError);
+    return;
+  }
+
+  // this is already have
+  if (existingSave) {
+    alert("You’ve already saved this restaurant.");
+    return;
+  }
+
+  // if not then insert it
+  const { error } = await supabase.from("user_saves").insert({
+    user_id: user.id,
+    visited: false,
+    places_api_id: place.id,
+    restaurant_id: id,
+  });
+
+  if (error) {
+    console.error("Error saving:", error);
+  } else {
+    setSave(true);
+  }
+};
   // console.log(save);
   console.log(place);
   // add a marker for the selected place
@@ -106,7 +129,7 @@ const AutocompleteResult = ({ place }: Props) => {
                 style={{ width: "250px" }}
               ></img>
             )}
-            <button onClick={onClick}> save to profile</button>
+            <button onClick={onClick} disabled={save}>{save ? "Already saved" : "Save to Profile"}</button>
           </div>
         </InfoWindow>
       )}
