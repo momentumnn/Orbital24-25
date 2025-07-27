@@ -120,7 +120,7 @@ function ProfilePage() {
   };
 
 
-  //fetch username
+  //fetch username and profile pic
   useEffect(() => {
     const fetchUsername = async () => {
       const { data: userData, error: userError } = await supabase.auth.getUser();
@@ -133,7 +133,7 @@ function ProfilePage() {
 
       const { data, error } = await supabase
         .from("Public_Profile")
-        .select("username")
+        .select("username, Profile_pic")
         .eq("user_id", user.id)
         .single();
 
@@ -141,6 +141,7 @@ function ProfilePage() {
         console.error("Error fetching username:", error.message);
       } else {
         setDisplayname(data.username);
+        setProfilePic(data.Profile_pic);
       }
     };
 
